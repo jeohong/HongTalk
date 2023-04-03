@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HongTalk" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-KF-4AB">
-                                <rect key="frame" x="132" y="148" width="150" height="150"/>
+                                <rect key="frame" x="132" y="167" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="MSR-Ac-wcU"/>
                                     <constraint firstAttribute="height" constant="150" id="tVg-gq-7Si"/>
@@ -83,11 +83,11 @@
                             <constraint firstItem="2jI-qQ-ZbA" firstAttribute="leading" secondItem="aX6-zP-Jck" secondAttribute="leading" id="KUt-5D-eyX"/>
                             <constraint firstItem="Gie-2v-bgF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="KXn-Iu-IQl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F1t-uc-ZxN" secondAttribute="trailing" constant="10" id="M0g-WX-G1c"/>
-                            <constraint firstItem="ilc-KF-4AB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="NCz-qG-QqD"/>
                             <constraint firstItem="RgJ-4T-cJG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="OJD-ff-qMf"/>
                             <constraint firstItem="RgJ-4T-cJG" firstAttribute="top" secondItem="2jI-qQ-ZbA" secondAttribute="bottom" constant="20" id="V5a-3A-Bd6"/>
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="leading" secondItem="F1t-uc-ZxN" secondAttribute="leading" id="XHD-Ce-ULm"/>
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="top" secondItem="F1t-uc-ZxN" secondAttribute="bottom" constant="5" id="ajZ-es-Sgy"/>
+                            <constraint firstItem="F1t-uc-ZxN" firstAttribute="top" secondItem="ilc-KF-4AB" secondAttribute="bottom" constant="50" id="cgw-Y3-sxa"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aX6-zP-Jck" secondAttribute="trailing" constant="10" id="goe-gp-hX3"/>
                             <constraint firstItem="ilc-KF-4AB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mTb-Ip-5nX"/>
                             <constraint firstItem="aX6-zP-Jck" firstAttribute="top" secondItem="F1t-uc-ZxN" secondAttribute="bottom" constant="30" id="oxQ-ym-9ui"/>
