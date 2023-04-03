@@ -6,6 +6,7 @@
 //
 
 #import "LoginViewController.h"
+@import FirebaseAuth;
 
 @interface LoginViewController ()
 // Method
@@ -30,7 +31,17 @@
 }
 
 - (void)pressedLoginButton:(id)sender {
-    NSLog(@"로그인");
+    [[FIRAuth auth] createUserWithEmail: [_emailTextfield text]
+                               password: [_passwordTextfield text]
+                             completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        if (error != nil) {
+            // Login 성공
+            NSLog(@"로그인 성공");
+        } else {
+            // 로그인 실패시 대응
+            NSLog(@"로그인 실패");
+        }
+    }];
 }
 
 -(void)pressedSignupButton:(id)sender {
