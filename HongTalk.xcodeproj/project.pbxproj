@@ -16,6 +16,7 @@
 		CFB6CC3029DA463B005876B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB6CC2F29DA463B005876B9 /* Assets.xcassets */; };
 		CFB6CC3329DA463B005876B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB6CC3129DA463B005876B9 /* LaunchScreen.storyboard */; };
 		CFB6CC3629DA463B005876B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC3529DA463B005876B9 /* main.m */; };
+		CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */; };
 		E8D9109917176953C7E47A21 /* Pods_HongTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		CFB6CC3229DA463B005876B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFB6CC3429DA463B005876B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB6CC3529DA463B005876B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,15 @@
 			path = "View+Storyboard";
 			sourceTree = "<group>";
 		};
+		CFB5072F29DA703700B3B42E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */,
+				CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		CFB6CC1729DA463B005876B9 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		CFB6CC2229DA463B005876B9 /* HongTalk */ = {
 			isa = PBXGroup;
 			children = (
+				CFB5072F29DA703700B3B42E /* ViewController */,
 				CFB5072E29DA64CE00B3B42E /* View+Storyboard */,
 				CF14916529DA52D2005F3A48 /* FirebaseFile */,
 				CFB6CC2329DA463B005876B9 /* AppDelegate.h */,
@@ -242,6 +255,7 @@
 				CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
+				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
