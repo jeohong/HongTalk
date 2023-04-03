@@ -8,14 +8,25 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-
+// Method
+-(void)setupLoginButton;
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 이메일과 패스워드가 올바른지 확인하는 문구 처음에 숨기기
+    [_correctEmailLabel setHidden: YES];
+    [_correctPasswordLabel setHidden: YES];
+    
+    // 초기 버튼 비활성화
+    [_loginButton setEnabled: NO];
+    [_loginButton setBackgroundColor: [UIColor grayColor]];
+    
+    // email 과 password 올바른지 검사
+    [_emailTextfield addTarget:self action:@selector(emailTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_passwordTextfield addTarget:self action:@selector(passwordTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)pressedLoginButton:(id)sender {
@@ -24,6 +35,63 @@
 
 -(void)pressedSignupButton:(id)sender {
     NSLog(@"회원가입");
+}
+
+-(void)emailTextFieldDidChange :(UITextField *) textField {
+    // 텍스트 필드의 이메일 형식 확인 || 텍스트 필드가 비어있을경우 경고표시 x
+    if ([self checkEmail: textField.text] || [[textField text] isEqualToString:@""]) {
+        [_correctEmailLabel setHidden: YES];
+    } else {
+        [_correctEmailLabel setHidden:NO];
+    }
+    [self setupLoginButton];
+}
+
+-(void)passwordTextFieldDidChange :(UITextField *) textField {
+    // 텍스트 필드의 패스워드 형식 확인 || 텍스트 필드가 비어있을경우 경고표시 x
+    if ([self checkPassword: textField.text] || [[textField text] isEqualToString:@""]) {
+        [_correctPasswordLabel setHidden: YES];
+    } else {
+        [_correctPasswordLabel setHidden: NO];
+    }
+    [self setupLoginButton];
+}
+
+-(BOOL)checkEmail:(NSString *) emailText {
+    const char *tmp = [emailText cStringUsingEncoding:NSUTF8StringEncoding];
+    if (emailText.length != strlen(tmp)) {
+        return NO;
+    }
+    
+    NSString *check = @"([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\\.[0-9a-zA-Z_-]+){1,2}";
+    
+    NSRange match = [emailText rangeOfString:check options:NSRegularExpressionSearch];
+    if (NSNotFound == match.location) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(BOOL)checkPassword:(NSString *) passwordText {
+    NSString *check = @"^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{6,20}$";
+    NSRange match = [passwordText rangeOfString:check options:NSRegularExpressionSearch];
+    if (NSNotFound == match.location) {
+        return NO;
+    }
+    return YES;
+}
+
+-(void)setupLoginButton {
+    // 경고문구가 둘다 없거나 , 둘다 비어있지 않을 경우에만 버튼 활성화
+    if (([_correctEmailLabel isHidden] && [_correctPasswordLabel isHidden]) &&
+        (![[_emailTextfield text] isEqualToString:@""] && ![[_passwordTextfield text] isEqualToString:@""])) {
+        [_loginButton setBackgroundColor: [UIColor blueColor]];
+        [_loginButton setEnabled: YES];
+    } else {
+        [_loginButton setBackgroundColor: [UIColor grayColor]];
+        [_loginButton setEnabled: NO];
+    }
 }
 
 @end

@@ -19,7 +19,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aX6-zP-Jck">
                                 <rect key="frame" x="10" y="431" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1t-uc-ZxN">
                                 <rect key="frame" x="10" y="367" width="394" height="34"/>
@@ -32,8 +32,8 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바른 비밀번호를 입력하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-qQ-ZbA">
-                                <rect key="frame" x="10" y="470" width="146" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호는 영문, 숫자, 특수문자를 포함한 6-20 자 사이입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-qQ-ZbA">
+                                <rect key="frame" x="10" y="470" width="301.5" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedLoginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Jxv-sv-E0v"/>
+                                    <action selector="pressedLoginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NDg-Aa-bLm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-2v-bgF">
@@ -63,7 +63,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressedSignupButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XUT-Od-US7"/>
+                                    <action selector="pressedSignupButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p32-eG-iht"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HongTalk" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-KF-4AB">
@@ -98,12 +98,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="correctEmailLabel" destination="W9J-fl-UnG" id="cyF-nB-duT"/>
-                        <outlet property="correctPasswordLabel" destination="2jI-qQ-ZbA" id="k9d-Zy-t1Q"/>
-                        <outlet property="emailTextfield" destination="F1t-uc-ZxN" id="Ry6-c8-70r"/>
-                        <outlet property="loginButton" destination="RgJ-4T-cJG" id="u3j-vg-sNp"/>
-                        <outlet property="passwordTextfield" destination="aX6-zP-Jck" id="ER1-0S-IW3"/>
-                        <outlet property="signupButton" destination="Gie-2v-bgF" id="QYj-qj-rrk"/>
+                        <outlet property="correctEmailLabel" destination="W9J-fl-UnG" id="s7m-FH-b9h"/>
+                        <outlet property="correctPasswordLabel" destination="2jI-qQ-ZbA" id="P41-Wy-1YG"/>
+                        <outlet property="emailTextfield" destination="F1t-uc-ZxN" id="sae-78-CVe"/>
+                        <outlet property="loginButton" destination="RgJ-4T-cJG" id="xy1-Aw-fCS"/>
+                        <outlet property="passwordTextfield" destination="aX6-zP-Jck" id="4kf-Se-dvo"/>
+                        <outlet property="signupButton" destination="Gie-2v-bgF" id="OK4-Yd-4W9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
