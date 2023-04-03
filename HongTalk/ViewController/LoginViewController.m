@@ -39,15 +39,15 @@
 }
 
 - (void)pressedLoginButton:(id)sender {
-    [[FIRAuth auth] createUserWithEmail: [_emailTextfield text]
-                               password: [_passwordTextfield text]
-                             completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+    [[FIRAuth auth] signInWithEmail:[_emailTextfield text]
+                           password:[_passwordTextfield text]
+                         completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         if (error != nil) {
             // Login 성공
-            NSLog(@"로그인 성공");
+            NSLog(@"로그인 실패 %@", [error localizedDescription]);
         } else {
             // 로그인 실패시 대응
-            NSLog(@"로그인 실패");
+            NSLog(@"로그인 성공");
         }
     }];
 }
