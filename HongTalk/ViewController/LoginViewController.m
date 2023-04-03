@@ -28,6 +28,14 @@
     // email 과 password 올바른지 검사
     [_emailTextfield addTarget:self action:@selector(emailTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_passwordTextfield addTarget:self action:@selector(passwordTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    // 텍스트 필드 외부 터치시 키보드 내리기
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    
+    [[self emailTextfield] setDelegate: (id)self];
+    [[self passwordTextfield] setDelegate: (id)self];
 }
 
 - (void)pressedLoginButton:(id)sender {
@@ -103,6 +111,16 @@
         [_loginButton setBackgroundColor: [UIColor grayColor]];
         [_loginButton setEnabled: NO];
     }
+}
+
+- (void)dismissKeyboard
+{
+     [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
