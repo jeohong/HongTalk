@@ -27,7 +27,7 @@
     UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
     LoginViewController *loginVC = (LoginViewController *)[loginSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
     loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:loginVC animated:YES completion:nil];
+    [self presentViewController:loginVC animated: NO completion:nil];
 }
 
 @end
