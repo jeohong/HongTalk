@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+@import FirebaseCore;
 
 @interface AppDelegate ()
 
@@ -16,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Firebase 설정
+    [FIRApp configure];
     return YES;
 }
 
