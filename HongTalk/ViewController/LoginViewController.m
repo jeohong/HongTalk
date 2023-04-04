@@ -54,7 +54,7 @@
                     errorMessage = @"해당 이메일을 찾을 수 없습니다.\n회원이 아니라면 회원가입을 진행해 주세요.";
                     break;
                 case 17005:
-                    errorMessage = @"해당 계정은 사용이 중지되었습니다. 관리자에게 문의하세요.";
+                    errorMessage = @"해당 계정은 사용이 중지되었습니다.\n관리자에게 문의하세요.";
                     break;
                 default:
                     errorMessage = @"다시 시도해 주세요";
