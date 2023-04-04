@@ -70,14 +70,17 @@
             [alert addAction:okAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            // 로그인 실패시 대응
+            // 로그인 성공 뷰 전환
             NSLog(@"로그인 성공");
         }
     }];
 }
 
 -(void)pressedSignupButton:(id)sender {
-    NSLog(@"회원가입");
+    UIStoryboard *signupSB = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
+    LoginViewController *signupVC = (LoginViewController *)[signupSB instantiateViewControllerWithIdentifier:@"SignupViewController"];
+    signupVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:signupVC animated: YES completion:nil];
 }
 
 -(void)emailTextFieldDidChange :(UITextField *) textField {
