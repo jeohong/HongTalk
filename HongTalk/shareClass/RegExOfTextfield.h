@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Methods
 - (BOOL)checkEmail: (NSString *) emailText;
-- (BOOL)checkPassword:(NSString *) passwordText;
+- (BOOL)checkPassword: (NSString *) passwordText;
+- (BOOL)checkName: (NSString *) nameText;
+- (BOOL)equalToPassword: (NSString *) passwordText checkPasswordText: (NSString *) currentText;
 
 @end
 

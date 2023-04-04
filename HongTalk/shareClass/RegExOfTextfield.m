@@ -44,4 +44,17 @@
     return YES;
 }
 
+-(BOOL)checkName:(NSString *)nameText {
+    if ([nameText length] > 10 || [nameText length] < 2) {
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)equalToPassword:(NSString *)passwordText checkPasswordText:(NSString *)currentText {
+    if (![passwordText isEqual: currentText]) {
+        return NO;
+    }
+    return YES;
+}
 @end
