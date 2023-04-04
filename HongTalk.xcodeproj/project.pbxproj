@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */; };
+		CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */; };
 		CFB5072D29DA64C900B3B42E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */; };
 		CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC2429DA463B005876B9 /* AppDelegate.m */; };
 		CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC2729DA463B005876B9 /* SceneDelegate.m */; };
@@ -25,6 +26,8 @@
 		97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.release.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.release.xcconfig"; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		CFB6CC2029DA463B005876B9 /* HongTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB6CC2329DA463B005876B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 			children = (
 				CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */,
 				CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */,
+				CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */,
+				CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */,
 				CFB6CC2B29DA463B005876B9 /* ViewController.m in Sources */,
 				CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
