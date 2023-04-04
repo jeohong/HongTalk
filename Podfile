@@ -11,5 +11,5 @@ target 'HongTalk' do
   pod 'FirebaseMessaging'
   pod 'FirebaseDatabase'
   pod 'FirebaseRemoteConfig'
-
+  pod 'FirebaseStorage'
 end
