@@ -7,6 +7,8 @@
 
 #import "SignupViewController.h"
 #import "RegExOfTextfield.h"
+@import FirebaseAuth;
+@import FirebaseDatabase;
 
 @interface SignupViewController ()
 //-(void)setupImage;
@@ -106,11 +108,43 @@
 }
 
 - (IBAction)pressedSignupButton:(id)sender {
-    NSLog(@"email: %@\npassword: %@\nname: %@", _emailTextfield.text, _passwordTextfield.text, _nameTextfield.text);
+    [[FIRAuth auth] createUserWithEmail: [_emailTextfield text]
+                               password: [_passwordTextfield text]
+                             completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        
+        NSString *errorMessage = @"";
+        if (error != nil) {
+            // 비밀번호 틀릴때 : 17009 , 아이디 틀릴때 : 17011, 계정 사용 중지 17005
+            switch([error code]) {
+                case 17007:
+                    errorMessage = @"이미 가입된 이메일입니다.";
+                    break;
+                case 17020:
+                    errorMessage = @"네트워크 상태를 확인해주세요.";
+                    break;
+                case 17008:
+                    errorMessage = @"올바른 이메일 형식이 아닙니다.";
+                    break;
+                default:
+                    errorMessage = @"다시 시도해 주세요";
+            }
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"회원가입 실패"
+                                                                          message: errorMessage
+                                                                   preferredStyle: UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated: YES completion:nil];
+            }];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            // 회원가입 가능한 경우 Firebase에 데이터 추가 로직
+        }
+    }];
 }
 
 -(void)setupImage {
-    NSLog(@"tap");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     [picker setDelegate: (id)self];
     [picker setAllowsEditing: YES];
