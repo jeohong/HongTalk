@@ -9,6 +9,7 @@
 #import "RegExOfTextfield.h"
 
 @interface SignupViewController ()
+//-(void)setupImage;
 
 @end
 
@@ -27,6 +28,11 @@
     [_checkPasswordTextfield addTarget:self action:@selector(checkPasswordTextfieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_nameTextfield addTarget:self action:@selector(nameTextfieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
+    // imageView Setting ( 갤러리에서 사진 가져오기 )
+    [_profileImage setUserInteractionEnabled: YES];
+    UITapGestureRecognizer *imageTapGesture = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(setupImage)];
+    [_profileImage addGestureRecognizer: imageTapGesture];
+    
     // 키보드 숨기기
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
@@ -39,7 +45,6 @@
     [_correctNameLabel setHidden: YES];
     [_checkPasswordLabel setHidden: YES];
 }
-
 
 // TextField 변동값에 따라 조건 설정
 -(void)emailTextFieldDidChange :(UITextField *) textField {
@@ -102,6 +107,27 @@
 
 - (IBAction)pressedSignupButton:(id)sender {
     NSLog(@"email: %@\npassword: %@\nname: %@", _emailTextfield.text, _passwordTextfield.text, _nameTextfield.text);
+}
+
+-(void)setupImage {
+    NSLog(@"tap");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setDelegate: (id)self];
+    [picker setAllowsEditing: YES];
+
+    [picker setSourceType: UIImagePickerControllerSourceTypePhotoLibrary];
+    
+    [self presentViewController: picker animated: YES completion: nil];
+}
+
+// imagePicker 델리게이트
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *) info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [_profileImage setImage: image];
+    [_profileImage setClipsToBounds: YES];
+    
+    [[_profileImage layer] setCornerRadius: _profileImage.frame.size.height / 2];
+    [picker dismissViewControllerAnimated: YES completion:nil];
 }
 
 // 키보드 숨기기
