@@ -119,35 +119,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vC-QM-JG0">
-                                <rect key="frame" x="10" y="389" width="373" height="34"/>
+                                <rect key="frame" x="10" y="379" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-H1-3lS">
-                                <rect key="frame" x="10" y="453" width="373" height="34"/>
+                                <rect key="frame" x="10" y="443" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wET-Sy-475">
-                                <rect key="frame" x="10" y="517" width="373" height="34"/>
+                                <rect key="frame" x="10" y="507" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Check" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNT-BI-wDJ">
-                                <rect key="frame" x="10" y="581" width="373" height="34"/>
+                                <rect key="frame" x="10" y="571" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-jS-lRE">
-                                <rect key="frame" x="121.66666666666669" y="190.66666666666663" width="150" height="147"/>
+                                <rect key="frame" x="121.66666666666669" y="180.66666666666666" width="150" height="146.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="8zV-Lf-uvh"/>
                                     <constraint firstAttribute="width" constant="150" id="cJ7-38-DtO"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adq-Ol-Jgp">
-                                <rect key="frame" x="10" y="655" width="373" height="40"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <rect key="frame" x="10" y="645" width="373" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QIa-Nh-mZs"/>
                                 </constraints>
@@ -155,39 +155,57 @@
                                 <state key="normal" title="계정 생성">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedSignupButton:" destination="PF6-ZV-pQy" eventType="touchUpInside" id="hoI-II-nMj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 올바른 이메일을 입력하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpD-qe-2nZ">
-                                <rect key="frame" x="10" y="428" width="144" height="15"/>
+                                <rect key="frame" x="10" y="418" width="144" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 닉네임은 2글자 이상 10글자 이하입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJv-oz-zvb">
-                                <rect key="frame" x="10" y="492" width="202.66666666666666" height="15"/>
+                                <rect key="frame" x="10" y="482" width="202.66666666666666" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 비밀번호는 영문, 숫자, 특수문자를 포함한 6-20자 사이입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYS-xe-WEG">
-                                <rect key="frame" x="10" y="556" width="307" height="15"/>
+                                <rect key="frame" x="10" y="546" width="307" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 비밀번호가 일치하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-V0-OG6">
-                                <rect key="frame" x="10" y="620" width="154.66666666666666" height="15"/>
+                                <rect key="frame" x="10" y="610" width="154.66666666666666" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In8-Kc-F7h">
-                                <rect key="frame" x="70.333333333333329" y="145.66666666666666" width="252.33333333333337" height="33.333333333333343"/>
+                                <rect key="frame" x="70.333333333333329" y="135.66666666666666" width="252.33333333333337" height="33.333333333333343"/>
                                 <string key="text">프로필 이미지 설정 
 아래 이미지를 탭 하여 이미지를 변경하세요</string>
                                 <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="15"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc9-jh-75v">
+                                <rect key="frame" x="10" y="705" width="373" height="40"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xKp-qA-YzS"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="취소">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedCancelButton:" destination="PF6-ZV-pQy" eventType="touchUpInside" id="hIa-hZ-NRY"/>
+                                    <action selector="pressedSignupButton:" destination="PF6-ZV-pQy" eventType="touchUpInside" id="xuB-tg-hid"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1lX-SL-a7r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -195,6 +213,7 @@
                             <constraint firstItem="1lX-SL-a7r" firstAttribute="trailing" secondItem="wNT-BI-wDJ" secondAttribute="trailing" constant="10" id="2FT-nJ-nxX"/>
                             <constraint firstItem="mfT-jS-lRE" firstAttribute="top" secondItem="In8-Kc-F7h" secondAttribute="bottom" constant="10" id="3fO-qC-373"/>
                             <constraint firstItem="wNT-BI-wDJ" firstAttribute="leading" secondItem="1lX-SL-a7r" secondAttribute="leading" constant="10" id="5qp-96-CWq"/>
+                            <constraint firstItem="lc9-jh-75v" firstAttribute="top" secondItem="adq-Ol-Jgp" secondAttribute="bottom" constant="20" id="7Ce-ZS-ZbM"/>
                             <constraint firstItem="mfT-jS-lRE" firstAttribute="centerX" secondItem="I3z-Vr-OWk" secondAttribute="centerX" id="DtF-M8-HcU"/>
                             <constraint firstItem="eNB-V0-OG6" firstAttribute="leading" secondItem="wNT-BI-wDJ" secondAttribute="leading" id="EGh-HL-0k3"/>
                             <constraint firstItem="eNB-V0-OG6" firstAttribute="top" secondItem="wNT-BI-wDJ" secondAttribute="bottom" constant="5" id="ITs-C2-Msl"/>
@@ -212,15 +231,29 @@
                             <constraint firstItem="1lX-SL-a7r" firstAttribute="trailing" secondItem="wET-Sy-475" secondAttribute="trailing" constant="10" id="cbj-sa-KIA"/>
                             <constraint firstItem="adq-Ol-Jgp" firstAttribute="top" secondItem="eNB-V0-OG6" secondAttribute="bottom" constant="20" id="gJ2-6u-haG"/>
                             <constraint firstItem="VFF-H1-3lS" firstAttribute="top" secondItem="0vC-QM-JG0" secondAttribute="bottom" constant="30" id="gbp-iy-6XU"/>
+                            <constraint firstItem="lc9-jh-75v" firstAttribute="leading" secondItem="1lX-SL-a7r" secondAttribute="leading" constant="10" id="i3u-aT-0EJ"/>
                             <constraint firstItem="wET-Sy-475" firstAttribute="top" secondItem="VFF-H1-3lS" secondAttribute="bottom" constant="30" id="ibk-Vd-xwY"/>
                             <constraint firstItem="In8-Kc-F7h" firstAttribute="centerX" secondItem="I3z-Vr-OWk" secondAttribute="centerX" id="jkH-I3-jXd"/>
                             <constraint firstItem="NJv-oz-zvb" firstAttribute="top" secondItem="VFF-H1-3lS" secondAttribute="bottom" constant="5" id="n5U-ka-Bfw"/>
                             <constraint firstItem="BpD-qe-2nZ" firstAttribute="top" secondItem="0vC-QM-JG0" secondAttribute="bottom" constant="5" id="oXO-xJ-i2N"/>
-                            <constraint firstItem="0vC-QM-JG0" firstAttribute="centerY" secondItem="I3z-Vr-OWk" secondAttribute="centerY" constant="-20" id="sCn-sz-ETy"/>
+                            <constraint firstItem="0vC-QM-JG0" firstAttribute="centerY" secondItem="I3z-Vr-OWk" secondAttribute="centerY" constant="-30" id="sCn-sz-ETy"/>
                             <constraint firstItem="wET-Sy-475" firstAttribute="leading" secondItem="1lX-SL-a7r" secondAttribute="leading" constant="10" id="srE-sm-g5z"/>
                             <constraint firstItem="0vC-QM-JG0" firstAttribute="leading" secondItem="1lX-SL-a7r" secondAttribute="leading" constant="10" id="xGj-Gh-J04"/>
+                            <constraint firstItem="1lX-SL-a7r" firstAttribute="trailing" secondItem="lc9-jh-75v" secondAttribute="trailing" constant="10" id="xYF-a9-4XH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NameTextfield" destination="VFF-H1-3lS" id="QhU-tO-X57"/>
+                        <outlet property="checkPasswordLabel" destination="eNB-V0-OG6" id="q9v-0h-dOz"/>
+                        <outlet property="checkPasswordTextfield" destination="wNT-BI-wDJ" id="afS-d6-IVS"/>
+                        <outlet property="correctEmailLabel" destination="BpD-qe-2nZ" id="RO7-0Z-52Z"/>
+                        <outlet property="correctNameLabel" destination="NJv-oz-zvb" id="y9I-QZ-zzC"/>
+                        <outlet property="correctPasswordLabel" destination="zYS-xe-WEG" id="htx-q2-tQ3"/>
+                        <outlet property="emailTextfield" destination="0vC-QM-JG0" id="SRs-b8-LLc"/>
+                        <outlet property="passwordTextfield" destination="wET-Sy-475" id="mhw-oc-9mz"/>
+                        <outlet property="profileImage" destination="mfT-jS-lRE" id="tsz-jV-4wH"/>
+                        <outlet property="signupButton" destination="adq-Ol-Jgp" id="cyd-q6-a7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNV-ig-yeB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,6 +268,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

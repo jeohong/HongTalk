@@ -16,4 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
+- (IBAction)pressedCancelButton:(id)sender {
+}
+
+- (IBAction)pressedSignupButton:(id)sender {
+}
 @end
