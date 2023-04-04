@@ -22,10 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)pressedLoginButton:(id)sender;
 - (IBAction)pressedSignupButton:(id)sender;
 
-// Methods
-- (BOOL)checkEmail: (NSString *) emailText;
-- (BOOL)checkPassword:(NSString *) passwordText;
-
 @end
 
 NS_ASSUME_NONNULL_END

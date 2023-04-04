@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */; };
 		CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */; };
+		CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */; };
 		CFB5072D29DA64C900B3B42E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */; };
 		CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC2429DA463B005876B9 /* AppDelegate.m */; };
 		CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC2729DA463B005876B9 /* SceneDelegate.m */; };
@@ -28,6 +29,8 @@
 		CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		CFAEDB9929DBC935008CF5A7 /* RegExOfTextfield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegExOfTextfield.h; sourceTree = "<group>"; };
+		CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegExOfTextfield.m; sourceTree = "<group>"; };
 		CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		CFB6CC2029DA463B005876B9 /* HongTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB6CC2329DA463B005876B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +85,15 @@
 			path = FirebaseFile;
 			sourceTree = "<group>";
 		};
+		CFAEDB9C29DBD883008CF5A7 /* shareClass */ = {
+			isa = PBXGroup;
+			children = (
+				CFAEDB9929DBC935008CF5A7 /* RegExOfTextfield.h */,
+				CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */,
+			);
+			path = shareClass;
+			sourceTree = "<group>";
+		};
 		CFB5072E29DA64CE00B3B42E /* View+Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +136,7 @@
 		CFB6CC2229DA463B005876B9 /* HongTalk */ = {
 			isa = PBXGroup;
 			children = (
+				CFAEDB9C29DBD883008CF5A7 /* shareClass */,
 				CFB5072F29DA703700B3B42E /* ViewController */,
 				CFB5072E29DA64CE00B3B42E /* View+Storyboard */,
 				CF14916529DA52D2005F3A48 /* FirebaseFile */,
@@ -262,6 +275,7 @@
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
+				CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 #import "LoginViewController.h"
+#import "RegExOfTextfield.h"
 @import FirebaseAuth;
 
 @interface LoginViewController ()
@@ -85,7 +86,7 @@
 
 -(void)emailTextFieldDidChange :(UITextField *) textField {
     // 텍스트 필드의 이메일 형식 확인 || 텍스트 필드가 비어있을경우 경고표시 x
-    if ([self checkEmail: textField.text] || [[textField text] isEqualToString:@""]) {
+    if ([[RegExOfTextfield sharedInstance] checkEmail: textField.text] || [[textField text] isEqualToString:@""]) {
         [_correctEmailLabel setHidden: YES];
     } else {
         [_correctEmailLabel setHidden:NO];
@@ -95,37 +96,12 @@
 
 -(void)passwordTextFieldDidChange :(UITextField *) textField {
     // 텍스트 필드의 패스워드 형식 확인 || 텍스트 필드가 비어있을경우 경고표시 x
-    if ([self checkPassword: textField.text] || [[textField text] isEqualToString:@""]) {
+    if ([[RegExOfTextfield sharedInstance] checkPassword: textField.text] || [[textField text] isEqualToString:@""]) {
         [_correctPasswordLabel setHidden: YES];
     } else {
         [_correctPasswordLabel setHidden: NO];
     }
     [self setupLoginButton];
-}
-
--(BOOL)checkEmail:(NSString *) emailText {
-    const char *tmp = [emailText cStringUsingEncoding:NSUTF8StringEncoding];
-    if (emailText.length != strlen(tmp)) {
-        return NO;
-    }
-    
-    NSString *check = @"([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\\.[0-9a-zA-Z_-]+){1,2}";
-    
-    NSRange match = [emailText rangeOfString:check options:NSRegularExpressionSearch];
-    if (NSNotFound == match.location) {
-        return NO;
-    }
-    
-    return YES;
-}
-
--(BOOL)checkPassword:(NSString *) passwordText {
-    NSString *check = @"^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{6,20}$";
-    NSRange match = [passwordText rangeOfString:check options:NSRegularExpressionSearch];
-    if (NSNotFound == match.location) {
-        return NO;
-    }
-    return YES;
 }
 
 -(void)setupLoginButton {
