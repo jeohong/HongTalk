@@ -203,7 +203,6 @@
                                 </state>
                                 <connections>
                                     <action selector="pressedCancelButton:" destination="PF6-ZV-pQy" eventType="touchUpInside" id="hIa-hZ-NRY"/>
-                                    <action selector="pressedSignupButton:" destination="PF6-ZV-pQy" eventType="touchUpInside" id="xuB-tg-hid"/>
                                 </connections>
                             </button>
                         </subviews>

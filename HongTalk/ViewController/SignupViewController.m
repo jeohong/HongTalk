@@ -17,9 +17,9 @@
     [super viewDidLoad];
 }
 - (IBAction)pressedCancelButton:(id)sender {
+    [self dismissViewControllerAnimated: YES completion: nil];
 }
 
 - (IBAction)pressedSignupButton:(id)sender {
-    [self dismissViewControllerAnimated: YES completion: nil];
 }
 @end
