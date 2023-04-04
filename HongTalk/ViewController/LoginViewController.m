@@ -42,9 +42,33 @@
     [[FIRAuth auth] signInWithEmail:[_emailTextfield text]
                            password:[_passwordTextfield text]
                          completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        
+        NSString *errorMessage = @"";
         if (error != nil) {
-            // Login 성공
-            NSLog(@"로그인 실패 %@", [error localizedDescription]);
+            // 비밀번호 틀릴때 : 17009 , 아이디 틀릴때 : 17011, 계정 사용 중지 17005
+            switch([error code]) {
+                case 17009:
+                    errorMessage = @"비밀번호를 확인해 주세요.";
+                    break;
+                case 17011:
+                    errorMessage = @"해당 이메일을 찾을 수 없습니다.\n회원이 아니라면 회원가입을 진행해 주세요.";
+                    break;
+                case 17005:
+                    errorMessage = @"해당 계정은 사용이 중지되었습니다. 관리자에게 문의하세요.";
+                    break;
+                default:
+                    errorMessage = @"다시 시도해 주세요";
+            }
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"로그인 실패"
+                                                                          message: errorMessage
+                                                                   preferredStyle: UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated: YES completion:nil];
+            }];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
         } else {
             // 로그인 실패시 대응
             NSLog(@"로그인 성공");
