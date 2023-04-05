@@ -104,6 +104,20 @@
                                     <action selector="tempButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xMr-Xp-4Pu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0s-fP-oZo">
+                                <rect key="frame" x="10" y="670" width="373" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pQc-rH-7mj"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="임시 뷰 이동 버튼 [ 채팅 ]">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="moveToView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iNp-ch-hAC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -119,7 +133,9 @@
                             <constraint firstItem="Gie-2v-bgF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="KXn-Iu-IQl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F1t-uc-ZxN" secondAttribute="trailing" constant="10" id="M0g-WX-G1c"/>
                             <constraint firstItem="RgJ-4T-cJG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="OJD-ff-qMf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q0s-fP-oZo" secondAttribute="trailing" constant="10" id="Tqq-LK-xCw"/>
                             <constraint firstItem="RgJ-4T-cJG" firstAttribute="top" secondItem="2jI-qQ-ZbA" secondAttribute="bottom" constant="20" id="V5a-3A-Bd6"/>
+                            <constraint firstItem="q0s-fP-oZo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="Wr2-6Y-kKj"/>
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="leading" secondItem="F1t-uc-ZxN" secondAttribute="leading" id="XHD-Ce-ULm"/>
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="top" secondItem="F1t-uc-ZxN" secondAttribute="bottom" constant="5" id="ajZ-es-Sgy"/>
                             <constraint firstItem="F1t-uc-ZxN" firstAttribute="top" secondItem="ilc-KF-4AB" secondAttribute="bottom" constant="50" id="cgw-Y3-sxa"/>
@@ -132,6 +148,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RgJ-4T-cJG" secondAttribute="trailing" constant="10" id="u0A-sF-Ves"/>
                             <constraint firstItem="aX6-zP-Jck" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="uoA-yc-pd6"/>
                             <constraint firstItem="2jI-qQ-ZbA" firstAttribute="top" secondItem="aX6-zP-Jck" secondAttribute="bottom" constant="5" id="xPg-mw-VBR"/>
+                            <constraint firstItem="rFj-RI-ha5" firstAttribute="top" secondItem="q0s-fP-oZo" secondAttribute="bottom" constant="8" id="xT7-ew-H32"/>
                         </constraints>
                     </view>
                     <connections>
@@ -308,6 +325,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

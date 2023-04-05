@@ -10,6 +10,7 @@
 		CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */; };
 		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
 		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
+		CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */; };
 		CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */; };
 		CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */; };
 		CFB5072D29DA64C900B3B42E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */; };
@@ -33,6 +34,8 @@
 		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		CFADF19229DD6CDC00ABCF4B /* ChattingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChattingViewController.h; sourceTree = "<group>"; };
+		CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChattingViewController.m; sourceTree = "<group>"; };
 		CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		CFAEDB9929DBC935008CF5A7 /* RegExOfTextfield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegExOfTextfield.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */,
 				CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */,
 				CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */,
+				CFADF19229DD6CDC00ABCF4B /* ChattingViewController.h */,
+				CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
 				CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */,
+				CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */,
 				CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

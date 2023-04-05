@@ -6,12 +6,17 @@
 //
 
 #import "LoginViewController.h"
+#import "ChattingViewController.h"
 #import "RegExOfTextfield.h"
 @import FirebaseAuth;
 
 @interface LoginViewController ()
 // Method
 -(void)setupLoginButton;
+
+// 임시 버튼
+- (IBAction)moveToView:(id)sender;
+
 @end
 
 @implementation LoginViewController
@@ -157,4 +162,10 @@
     return YES;
 }
 
+- (IBAction)moveToView:(id)sender {
+    UIStoryboard *tempSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChattingViewController *tempVC = (ChattingViewController *)[tempSB instantiateViewControllerWithIdentifier:@"ChattingViewController"];
+    tempVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:tempVC animated: NO completion:nil];
+}
 @end
