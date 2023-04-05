@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" rowHeight="70" id="NaW-yj-HzX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsListCell" rowHeight="70" id="NaW-yj-HzX" customClass="FriendsListCell">
                                         <rect key="frame" x="0.0" y="50" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NaW-yj-HzX" id="v5D-w1-xAc">
@@ -45,8 +45,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkd-1W-4H6">
                                                     <rect key="frame" x="10" y="10" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="G4S-Ca-hfy"/>
-                                                        <constraint firstAttribute="height" constant="50" id="jce-uP-UVt"/>
+                                                        <constraint firstAttribute="width" constant="50" id="NnJ-zg-vT0"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Wl9-1t-b4A"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유저 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-vf-2CN">
@@ -63,15 +63,20 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="2vs-Cy-bKj"/>
-                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="leading" secondItem="Tkd-1W-4H6" secondAttribute="trailing" constant="20" id="5Dv-59-XWM"/>
-                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="leading" secondItem="v5D-w1-xAc" secondAttribute="leading" constant="10" id="6Ea-TY-Gp4"/>
-                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FG2-vf-2CN" secondAttribute="trailing" constant="10" id="kqQ-1W-1L2"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Gbg-Ok-duh" secondAttribute="trailing" constant="10" id="nJY-Bi-SX2"/>
-                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="xGa-Mc-FHl"/>
-                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="yLO-im-oXH"/>
+                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="leading" secondItem="Tkd-1W-4H6" secondAttribute="trailing" constant="20" id="0jz-jg-sV9"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FG2-vf-2CN" secondAttribute="trailing" constant="10" id="2A7-KQ-y2m"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="IFc-1I-twe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gbg-Ok-duh" secondAttribute="trailing" constant="10" id="RoF-l0-s4K"/>
+                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="ibo-zr-tTT"/>
+                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="leading" secondItem="v5D-w1-xAc" secondAttribute="leading" constant="10" id="rCW-Xr-dCG"/>
+                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="weQ-g7-bU6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImage" destination="Tkd-1W-4H6" id="lNO-Rr-1dz"/>
+                                            <outlet property="userNameLabel" destination="FG2-vf-2CN" id="8AY-h9-U4d"/>
+                                            <outlet property="userStateLabel" destination="Gbg-Ok-duh" id="ALq-aG-YbE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

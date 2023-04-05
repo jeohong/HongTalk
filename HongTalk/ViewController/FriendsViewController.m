@@ -6,6 +6,7 @@
 //
 
 #import "FriendsViewController.h"
+#import "FriendsListCell.h"
 
 @interface FriendsViewController() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsList;
@@ -26,10 +27,16 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellId = @"FriendsCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
-    
+    NSString *cellId = @"FriendsListCell";
+    FriendsListCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+        
+    [[cell profileImage] setImage: [UIImage imageNamed: @"HongTalk"]];
+    [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
 }
 
 @end
