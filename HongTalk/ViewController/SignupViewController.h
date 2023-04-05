@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 - (IBAction)pressedSignupButton:(id)sender;
 - (IBAction)pressedCancelButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 // methods
 /// 경고문구 초반에 숨기기

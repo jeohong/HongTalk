@@ -242,6 +242,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="lc9-jh-75v" id="Edm-ec-PQE"/>
                         <outlet property="checkPasswordLabel" destination="eNB-V0-OG6" id="q9v-0h-dOz"/>
                         <outlet property="checkPasswordTextfield" destination="wNT-BI-wDJ" id="afS-d6-IVS"/>
                         <outlet property="correctEmailLabel" destination="BpD-qe-2nZ" id="RO7-0Z-52Z"/>
