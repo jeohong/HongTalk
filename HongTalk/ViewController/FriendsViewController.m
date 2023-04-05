@@ -6,11 +6,11 @@
 //
 
 #import "FriendsViewController.h"
-#import "FriendsListCell.h"
 
+// MARK: FriendsViewController
 @interface FriendsViewController() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsList;
-
+@property (weak, nonatomic) NSMutableArray *users;
 @end
 
 @implementation FriendsViewController
@@ -40,6 +40,19 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
+}
+
+@end
+
+// MARK: TableView Cell Class
+@implementation FriendsListCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
 }
 
 @end
