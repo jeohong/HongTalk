@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */; };
+		A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */; };
 		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
 		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
 		CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */; };
@@ -28,8 +28,8 @@
 /* Begin PBXFileReference section */
 		45F65872AF094105D610E9C8 /* Pods-HongTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.debug.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.release.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.release.xcconfig"; sourceTree = "<group>"; };
+		A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CFADF18929DD0DD300ABCF4B /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		CF14916529DA52D2005F3A48 /* FirebaseFile */ = {
 			isa = PBXGroup;
 			children = (
-				CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */,
+				A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */,
 			);
 			path = FirebaseFile;
 			sourceTree = "<group>";
@@ -236,8 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB6CC3329DA463B005876B9 /* LaunchScreen.storyboard in Resources */,
-				CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */,
 				CFB5072D29DA64C900B3B42E /* LoginViewController.storyboard in Resources */,
+				A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */,
 				CFB6CC3029DA463B005876B9 /* Assets.xcassets in Resources */,
 				CFB6CC2E29DA463B005876B9 /* Main.storyboard in Resources */,
 			);
@@ -445,7 +445,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDA545DV75;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -473,7 +473,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XDA545DV75;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
