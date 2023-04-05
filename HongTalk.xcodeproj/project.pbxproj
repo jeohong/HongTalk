@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CF14916429DA52C8005F3A48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */; };
+		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
+		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
 		CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */; };
 		CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */; };
 		CFB5072D29DA64C900B3B42E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5072C29DA64C900B3B42E /* LoginViewController.storyboard */; };
@@ -27,6 +29,10 @@
 		97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.release.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.release.xcconfig"; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF14916329DA52C8005F3A48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFADF18929DD0DD300ABCF4B /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		CFAEDB9929DBC935008CF5A7 /* RegExOfTextfield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegExOfTextfield.h; sourceTree = "<group>"; };
@@ -85,6 +91,15 @@
 			path = FirebaseFile;
 			sourceTree = "<group>";
 		};
+		CFADF18829DD0CD400ABCF4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CFADF18929DD0DD300ABCF4B /* UserModel.h */,
+				CFADF18A29DD0DD300ABCF4B /* UserModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CFAEDB9C29DBD883008CF5A7 /* shareClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +126,8 @@
 				CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */,
 				CFAEDB9229DBAD4F008CF5A7 /* SignupViewController.h */,
 				CFAEDB9329DBAD4F008CF5A7 /* SignupViewController.m */,
+				CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */,
+				CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -139,6 +156,7 @@
 				CFAEDB9C29DBD883008CF5A7 /* shareClass */,
 				CFB5072F29DA703700B3B42E /* ViewController */,
 				CFB5072E29DA64CE00B3B42E /* View+Storyboard */,
+				CFADF18829DD0CD400ABCF4B /* Models */,
 				CF14916529DA52D2005F3A48 /* FirebaseFile */,
 				CFB6CC2329DA463B005876B9 /* AppDelegate.h */,
 				CFB6CC2429DA463B005876B9 /* AppDelegate.m */,
@@ -272,9 +290,11 @@
 				CFAEDB9429DBAD4F008CF5A7 /* SignupViewController.m in Sources */,
 				CFB6CC2B29DA463B005876B9 /* ViewController.m in Sources */,
 				CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */,
+				CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
+				CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */,
 				CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

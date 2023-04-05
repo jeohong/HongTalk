@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -26,12 +26,68 @@
         <!--친구-->
         <scene sceneID="Chl-DJ-yUz">
             <objects>
-                <viewController id="Rnv-ws-fvV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendsViewController" id="Rnv-ws-fvV" customClass="FriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6RH-Hl-N1i">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ogv-34-SZ8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" rowHeight="70" id="NaW-yj-HzX">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NaW-yj-HzX" id="v5D-w1-xAc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tkd-1W-4H6">
+                                                    <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="G4S-Ca-hfy"/>
+                                                        <constraint firstAttribute="height" constant="50" id="jce-uP-UVt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유저 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-vf-2CN">
+                                                    <rect key="frame" x="80" y="24.5" width="63.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상태메세지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-Ok-duh">
+                                                    <rect key="frame" x="305.5" y="29" width="43.5" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="2vs-Cy-bKj"/>
+                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="leading" secondItem="Tkd-1W-4H6" secondAttribute="trailing" constant="20" id="5Dv-59-XWM"/>
+                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="leading" secondItem="v5D-w1-xAc" secondAttribute="leading" constant="10" id="6Ea-TY-Gp4"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FG2-vf-2CN" secondAttribute="trailing" constant="10" id="kqQ-1W-1L2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gbg-Ok-duh" secondAttribute="trailing" constant="10" id="nJY-Bi-SX2"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="xGa-Mc-FHl"/>
+                                                <constraint firstItem="Tkd-1W-4H6" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="yLO-im-oXH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rnv-ws-fvV" id="v3d-43-ak7"/>
+                                    <outlet property="delegate" destination="Rnv-ws-fvV" id="ULw-92-exY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uFs-6e-FAz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ogv-34-SZ8" firstAttribute="bottom" secondItem="uFs-6e-FAz" secondAttribute="bottom" id="QGC-0h-TQ9"/>
+                            <constraint firstItem="ogv-34-SZ8" firstAttribute="leading" secondItem="uFs-6e-FAz" secondAttribute="leading" id="QIR-hJ-6AJ"/>
+                            <constraint firstItem="ogv-34-SZ8" firstAttribute="trailing" secondItem="uFs-6e-FAz" secondAttribute="trailing" id="izh-ja-jeH"/>
+                            <constraint firstItem="ogv-34-SZ8" firstAttribute="top" secondItem="uFs-6e-FAz" secondAttribute="top" id="sdx-yX-b9Q"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="친구" image="person.3" catalog="system" id="ewY-HV-50j"/>
                 </viewController>
@@ -44,7 +100,7 @@
             <objects>
                 <viewController id="ie7-3u-sQd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="scp-cN-csD">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="zIH-2S-0QZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,7 +117,7 @@
             <objects>
                 <viewController id="l6r-SZ-4TQ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLp-Jv-E7V">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="bfB-fi-WGG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -99,6 +155,9 @@
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
