@@ -50,13 +50,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유저 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-vf-2CN">
-                                                    <rect key="frame" x="80" y="24.5" width="63.5" height="21"/>
+                                                    <rect key="frame" x="80" y="15" width="63.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상태메세지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-Ok-duh">
-                                                    <rect key="frame" x="305.5" y="29" width="43.5" height="12"/>
+                                                    <rect key="frame" x="80" y="46" width="269" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -64,12 +64,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="FG2-vf-2CN" firstAttribute="leading" secondItem="Tkd-1W-4H6" secondAttribute="trailing" constant="20" id="0jz-jg-sV9"/>
-                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FG2-vf-2CN" secondAttribute="trailing" constant="10" id="2A7-KQ-y2m"/>
-                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="IFc-1I-twe"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Gbg-Ok-duh" secondAttribute="trailing" constant="10" id="RoF-l0-s4K"/>
+                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="top" secondItem="Tkd-1W-4H6" secondAttribute="top" constant="5" id="1pC-jY-2hX"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="leading" secondItem="Tkd-1W-4H6" secondAttribute="trailing" constant="20" id="gkU-ZO-Ney"/>
                                                 <constraint firstItem="Tkd-1W-4H6" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="ibo-zr-tTT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gbg-Ok-duh" secondAttribute="trailing" constant="10" id="lmV-7q-uun"/>
+                                                <constraint firstItem="Gbg-Ok-duh" firstAttribute="top" secondItem="FG2-vf-2CN" secondAttribute="bottom" constant="10" id="nKa-4k-oFl"/>
                                                 <constraint firstItem="Tkd-1W-4H6" firstAttribute="leading" secondItem="v5D-w1-xAc" secondAttribute="leading" constant="10" id="rCW-Xr-dCG"/>
-                                                <constraint firstItem="FG2-vf-2CN" firstAttribute="centerY" secondItem="v5D-w1-xAc" secondAttribute="centerY" id="weQ-g7-bU6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

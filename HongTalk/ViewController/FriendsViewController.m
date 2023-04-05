@@ -56,16 +56,16 @@
     NSString *cellId = @"FriendsListCell";
     FriendsListCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
         
-    [[cell userNameLabel] setText: [[_users objectAtIndex: indexPath.row] valueForKey: @"userName"]];
-    
     // Image setting
     [[[NSURLSession sharedSession] dataTaskWithURL: [NSURL URLWithString: [[_users objectAtIndex: indexPath.row] valueForKey: @"profileImageUrl"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[cell profileImage] setImage: [UIImage imageWithData: data]];
-                [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
-            });
-        }] resume];
-    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[cell profileImage] setImage: [UIImage imageWithData: data]];
+            [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
+        });
+    }] resume];
+
+    [[cell userNameLabel] setText: [[_users objectAtIndex: indexPath.row] valueForKey: @"userName"]];
+    [[cell userStateLabel] setText: [[_users objectAtIndex: indexPath.row] valueForKey: @"comment"]];
     return cell;
 }
 
