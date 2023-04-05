@@ -18,6 +18,8 @@
 /// Error 코드에 따른 Alert창 띄워주는 함수
 -(void)presentAlert: (NSError *) error;
 
+// 키보드 관련 프로퍼티 ( 올리기, 내리기 )
+
 @end
 
 @implementation SignupViewController
@@ -44,6 +46,16 @@
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:gestureRecognizer];
     gestureRecognizer.cancelsTouchesInView = NO;
+    
+    // Return 버튼 탭할때
+    [[self emailTextfield] setDelegate: (id)self];
+    [[self passwordTextfield] setDelegate: (id)self];
+    [[self nameTextfield] setDelegate: (id)self];
+    [[self checkPasswordTextfield] setDelegate: (id)self];
+    
+    // 키보드 나타날때 뷰 올려주기
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 -(void)labelsSetHidden {
@@ -223,6 +235,31 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+// 키보드에 따른 뷰 올리기, 내리기
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+//        self.view.frame = CGRectMake(0, -keyboardRect.size.height, self.view.frame.size.width, self.view.frame.size.height);
+                self.view.frame = CGRectMake(0, -(self.view.frame.size.height - (self.checkPasswordLabel.frame.origin.y)), self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
