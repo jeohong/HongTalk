@@ -36,7 +36,6 @@
             
             [self.users addObject: userModel];
         }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self->_friendsList reloadData];
         });
@@ -56,9 +55,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"FriendsListCell";
     FriendsListCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+        
+    [[cell userNameLabel] setText: [[_users objectAtIndex: indexPath.row] valueForKey: @"userName"]];
     
-    [[cell profileImage] setImage: [UIImage imageNamed: @"HongTalk"]];
-    [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
+    // Image setting
+    [[[NSURLSession sharedSession] dataTaskWithURL: [NSURL URLWithString: [[_users objectAtIndex: indexPath.row] valueForKey: @"profileImageUrl"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[cell profileImage] setImage: [UIImage imageWithData: data]];
+                [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
+            });
+        }] resume];
+    
     return cell;
 }
 
