@@ -73,13 +73,48 @@
                                     <constraint firstAttribute="height" constant="150" id="tVg-gq-7Si"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmS-sV-SY7">
+                                <rect key="frame" x="10" y="768" width="373" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YvZ-0F-81B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="[임시] 테스트계정2 입력">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tempButton2:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tvx-29-8Tu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFj-RI-ha5">
+                                <rect key="frame" x="10" y="718" width="373" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fay-sV-ylM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bux-IY-mTq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="[임시] 테스트계정1 입력">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tempButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xMr-Xp-4Pu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Gie-2v-bgF" firstAttribute="top" secondItem="RgJ-4T-cJG" secondAttribute="bottom" constant="20" id="26U-bl-2GF"/>
                             <constraint firstItem="F1t-uc-ZxN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="3SH-bE-msG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rFj-RI-ha5" secondAttribute="trailing" constant="10" id="5ih-ET-rBd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Gie-2v-bgF" secondAttribute="trailing" constant="10" id="7nq-oY-z6k"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DmS-sV-SY7" secondAttribute="trailing" constant="10" id="8V8-5y-MIX"/>
+                            <constraint firstItem="DmS-sV-SY7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="9xL-09-IHw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DmS-sV-SY7" secondAttribute="bottom" constant="10" id="C69-FX-3Ur"/>
                             <constraint firstItem="2jI-qQ-ZbA" firstAttribute="leading" secondItem="aX6-zP-Jck" secondAttribute="leading" id="KUt-5D-eyX"/>
                             <constraint firstItem="Gie-2v-bgF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="KXn-Iu-IQl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F1t-uc-ZxN" secondAttribute="trailing" constant="10" id="M0g-WX-G1c"/>
@@ -88,7 +123,9 @@
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="leading" secondItem="F1t-uc-ZxN" secondAttribute="leading" id="XHD-Ce-ULm"/>
                             <constraint firstItem="W9J-fl-UnG" firstAttribute="top" secondItem="F1t-uc-ZxN" secondAttribute="bottom" constant="5" id="ajZ-es-Sgy"/>
                             <constraint firstItem="F1t-uc-ZxN" firstAttribute="top" secondItem="ilc-KF-4AB" secondAttribute="bottom" constant="50" id="cgw-Y3-sxa"/>
+                            <constraint firstItem="rFj-RI-ha5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="geT-bk-5Ft"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aX6-zP-Jck" secondAttribute="trailing" constant="10" id="goe-gp-hX3"/>
+                            <constraint firstItem="DmS-sV-SY7" firstAttribute="top" secondItem="rFj-RI-ha5" secondAttribute="bottom" constant="10" id="mRH-P3-Aos"/>
                             <constraint firstItem="ilc-KF-4AB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mTb-Ip-5nX"/>
                             <constraint firstItem="aX6-zP-Jck" firstAttribute="top" secondItem="F1t-uc-ZxN" secondAttribute="bottom" constant="30" id="oxQ-ym-9ui"/>
                             <constraint firstItem="aX6-zP-Jck" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="qPy-iz-zVN"/>
@@ -271,6 +308,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

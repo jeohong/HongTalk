@@ -40,6 +40,12 @@
 }
 
 - (void)pressedLoginButton:(id)sender {
+    // 로그인 중일때 로그인 버튼 클릭 못하도록 설정
+    [_loginButton setTitle: @"로그인중.." forState: UIControlStateNormal];
+    [_loginButton setBackgroundColor: [UIColor grayColor]];
+    [_loginButton setEnabled: NO];
+    [_signupButton setHidden: YES];
+    
     [[FIRAuth auth] signInWithEmail:[_emailTextfield text]
                            password:[_passwordTextfield text]
                          completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
@@ -65,19 +71,41 @@
             }
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle: @"로그인 실패"
-                                                                          message: errorMessage
-                                                                   preferredStyle: UIAlertControllerStyleAlert];
+                                                                           message: errorMessage
+                                                                    preferredStyle: UIAlertControllerStyleAlert];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self->_loginButton setTitle: @"로그인" forState: UIControlStateNormal];
+                [self->_signupButton setHidden: NO];
                 [alert dismissViewControllerAnimated: YES completion:nil];
             }];
             [alert addAction:okAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
             // 로그인 성공 뷰 전환
-            NSLog(@"로그인 성공");
+            [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+                if (user != nil) {
+                    UIStoryboard *tabbarSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UITabBarController *tabbarVC = (UITabBarController *)[tabbarSB instantiateViewControllerWithIdentifier:@"MainViewTabBarController"];
+                    tabbarVC.modalPresentationStyle = UIModalPresentationFullScreen;
+                    [self presentViewController:tabbarVC animated: NO completion:nil];
+                }
+            }];
         }
     }];
+}
+
+// MARK: 임시 테스트 계정
+- (IBAction)tempButton2:(id)sender {
+    [_emailTextfield setText: @"test2@test.com"];
+    [_passwordTextfield setText: @"test123!"];
+    [self setupLoginButton];
+}
+
+- (IBAction)tempButton:(id)sender {
+    [_emailTextfield setText: @"test@test.com"];
+    [_passwordTextfield setText: @"test123!"];
+    [self setupLoginButton];
 }
 
 -(void)pressedSignupButton:(id)sender {
@@ -121,7 +149,7 @@
 
 - (void)dismissKeyboard
 {
-     [self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

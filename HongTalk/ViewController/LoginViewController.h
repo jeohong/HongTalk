@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Actions
 - (IBAction)pressedLoginButton:(id)sender;
 - (IBAction)pressedSignupButton:(id)sender;
+- (IBAction)tempButton:(id)sender;
+- (IBAction)tempButton2:(id)sender;
 
 @end
 
