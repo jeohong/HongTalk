@@ -95,6 +95,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="친구" image="person.3" catalog="system" id="ewY-HV-50j"/>
+                    <connections>
+                        <outlet property="friendsList" destination="ogv-34-SZ8" id="A00-Pl-1pX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i32-6K-DFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

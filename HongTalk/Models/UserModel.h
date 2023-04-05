@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *profileImageUrl;
 @property (nonatomic) NSString *uid;
 @property (nonatomic) NSString *userName;
-@property (nonatomic) NSString *comment;
 @end
 
 NS_ASSUME_NONNULL_END

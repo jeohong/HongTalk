@@ -6,17 +6,41 @@
 //
 
 #import "FriendsViewController.h"
+#import "UserModel.h"
+@import FirebaseDatabase;
+@import FirebaseAuth;
 
 // MARK: FriendsViewController
 @interface FriendsViewController() <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsList;
-@property (weak, nonatomic) NSMutableArray *users;
+@property NSMutableArray *users;
 @end
 
 @implementation FriendsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _users = [NSMutableArray array];
+    [[[[FIRDatabase database] reference] child: @"users"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        [self->_users removeAllObjects];
+        NSString *uid = [[[FIRAuth auth] currentUser] uid];
+        
+        for (FIRDataSnapshot *data in [snapshot children]) {
+            UserModel *userModel = [[UserModel alloc] init];
+            [userModel setValuesForKeysWithDictionary: [data value]];
+            
+            if ([[userModel uid] isEqual: uid]) {
+                continue;
+            }
+            
+            [self.users addObject: userModel];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_friendsList reloadData];
+        });
+    }];
 }
 
 // MARK: Delegate
@@ -26,13 +50,13 @@
 
 // MARK: DataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return _users.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"FriendsListCell";
     FriendsListCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
-        
+    
     [[cell profileImage] setImage: [UIImage imageNamed: @"HongTalk"]];
     [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
     return cell;
