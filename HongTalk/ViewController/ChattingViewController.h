@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ChattingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UITableView *chattingTableView;
 
 @end
 
