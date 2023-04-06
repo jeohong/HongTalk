@@ -6,6 +6,7 @@
 //
 
 #import "FriendsViewController.h"
+#import "ChattingViewController.h"
 #import "UserModel.h"
 @import FirebaseDatabase;
 @import FirebaseAuth;
@@ -45,6 +46,11 @@
 // MARK: Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    
+    UIStoryboard *chatSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChattingViewController *chatVC = (ChattingViewController *)[chatSB instantiateViewControllerWithIdentifier:@"ChattingViewController"];
+    chatVC.destinationUid = [[_users objectAtIndex: indexPath.row] valueForKey: @"uid"];
+    [[self navigationController] pushViewController: chatVC animated:YES];
 }
 
 // MARK: DataSource

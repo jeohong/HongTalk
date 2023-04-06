@@ -55,11 +55,11 @@
                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H5B-mD-Lzi">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H5B-mD-Lzi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="64" id="2cz-GT-Z5U">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" rowHeight="64" id="2cz-GT-Z5U" customClass="MyMessageCell">
                                         <rect key="frame" x="0.0" y="50" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2cz-GT-Z5U" id="daA-J8-2RU">
@@ -69,7 +69,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_blue" translatesAutoresizingMaskIntoConstraints="NO" id="jtS-bT-CI4">
                                                     <rect key="frame" x="307.5" y="1" width="61.5" height="40.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfB-X9-vuM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfB-X9-vuM">
                                                     <rect key="frame" x="317.5" y="11" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -105,8 +105,13 @@
                                                 <constraint firstItem="jtS-bT-CI4" firstAttribute="leading" secondItem="Oj5-yF-1Ql" secondAttribute="trailing" constant="3" id="zC2-O9-E2h"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="FfB-X9-vuM" id="Ne9-D7-O5f"/>
+                                            <outlet property="readCountLabel" destination="Oj5-yF-1Ql" id="WNA-Ej-yHs"/>
+                                            <outlet property="timestampLabel" destination="JFU-UY-FpE" id="1TY-kd-CWl"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="lFQ-Tr-Ump">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DestinationMessageCell" rowHeight="71" id="lFQ-Tr-Ump" customClass="DestinationMessageCell">
                                         <rect key="frame" x="0.0" y="114" width="375" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lFQ-Tr-Ump" id="T2W-SJ-AO8">
@@ -116,7 +121,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_gray" translatesAutoresizingMaskIntoConstraints="NO" id="z1G-Mc-7tP">
                                                     <rect key="frame" x="56" y="1" width="72" height="47.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvX-hD-8Od">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvX-hD-8Od">
                                                     <rect key="frame" x="66" y="11" width="52" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -168,6 +173,13 @@
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="LvX-hD-8Od" secondAttribute="trailing" constant="65" id="ugZ-Ra-fqh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="LvX-hD-8Od" id="ZDk-fy-JSW"/>
+                                            <outlet property="nameLabel" destination="grD-mB-XnM" id="bBt-SB-F6S"/>
+                                            <outlet property="profileImage" destination="25f-fJ-C9f" id="KF7-xZ-nIz"/>
+                                            <outlet property="readCountLabel" destination="TY1-Ng-p06" id="SW5-pl-9aD"/>
+                                            <outlet property="timestampLabel" destination="EHF-nn-sLC" id="xro-lh-cFt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -201,7 +213,7 @@
             </objects>
             <point key="canvasLocation" x="908" y="-3.1484257871064472"/>
         </scene>
-        <!--친구-->
+        <!--Friends View Controller-->
         <scene sceneID="Chl-DJ-yUz">
             <objects>
                 <viewController storyboardIdentifier="FriendsViewController" id="Rnv-ws-fvV" customClass="FriendsViewController" sceneMemberID="viewController">
@@ -210,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ogv-34-SZ8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsListCell" rowHeight="70" id="NaW-yj-HzX" customClass="FriendsListCell">
@@ -272,14 +284,14 @@
                             <constraint firstItem="ogv-34-SZ8" firstAttribute="top" secondItem="uFs-6e-FAz" secondAttribute="top" id="sdx-yX-b9Q"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="친구" image="person.3" catalog="system" id="ewY-HV-50j"/>
+                    <navigationItem key="navigationItem" id="6aS-eM-dcI"/>
                     <connections>
                         <outlet property="friendsList" destination="ogv-34-SZ8" id="A00-Pl-1pX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i32-6K-DFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="91"/>
+            <point key="canvasLocation" x="2844" y="90.404797601199405"/>
         </scene>
         <!--개인설정-->
         <scene sceneID="K7C-VD-wuG">
@@ -296,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xId-ne-liB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3897" y="91"/>
+            <point key="canvasLocation" x="4836" y="90.404797601199405"/>
         </scene>
         <!--채팅-->
         <scene sceneID="Hqc-zQ-Igx">
@@ -312,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7d-tu-BkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984" y="91"/>
+            <point key="canvasLocation" x="3922.4000000000001" y="90.404797601199405"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zn5-cw-Mrd">
@@ -325,7 +337,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Rnv-ws-fvV" kind="relationship" relationship="viewControllers" id="atj-de-k4q"/>
+                        <segue destination="Lh4-qS-3hO" kind="relationship" relationship="viewControllers" id="atj-de-k4q"/>
                         <segue destination="l6r-SZ-4TQ" kind="relationship" relationship="viewControllers" id="TjV-fm-Wgf"/>
                         <segue destination="ie7-3u-sQd" kind="relationship" relationship="viewControllers" id="hOS-W2-KqX"/>
                     </connections>
@@ -333,6 +345,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaL-iv-kgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2984" y="-735"/>
+        </scene>
+        <!--친구-->
+        <scene sceneID="3th-rH-5MW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lh4-qS-3hO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="친구" image="person.3" catalog="system" id="ewY-HV-50j"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5TB-Pk-n6d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rnv-ws-fvV" kind="relationship" relationship="rootViewController" id="HrE-VG-Hb2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUz-NU-CLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.8" y="90.404797601199405"/>
         </scene>
     </scenes>
     <resources>
