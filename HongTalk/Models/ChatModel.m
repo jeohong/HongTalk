@@ -14,6 +14,7 @@
     if (self) {
         _uid = dictionary[@"uid"];
         _message = dictionary[@"message"];
+        _timestamp = dictionary[@"timestamp"];
     }
     return self;
 }
@@ -22,6 +23,7 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary new];
     [dictionary setObject:_uid forKey:@"uid"];
     [dictionary setObject:_message forKey:@"message"];
+    [dictionary setObject:_timestamp forKey:@"timestamp"];
 
     return dictionary;
 }
