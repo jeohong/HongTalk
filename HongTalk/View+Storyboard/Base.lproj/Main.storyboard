@@ -119,10 +119,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_gray" translatesAutoresizingMaskIntoConstraints="NO" id="z1G-Mc-7tP">
-                                                    <rect key="frame" x="56" y="1" width="72" height="47.5"/>
+                                                    <rect key="frame" x="56" y="1" width="61.5" height="40.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvX-hD-8Od">
-                                                    <rect key="frame" x="66" y="11" width="52" height="27.5"/>
+                                                    <rect key="frame" x="66" y="11" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -141,14 +141,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023.03.01 11:11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHF-nn-sLC">
-                                                    <rect key="frame" x="64" y="54.5" width="72" height="16"/>
+                                                    <rect key="frame" x="64" y="47.5" width="72" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TY1-Ng-p06">
-                                                    <rect key="frame" x="131" y="34" width="375" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TY1-Ng-p06">
+                                                    <rect key="frame" x="120.5" y="26.5" width="15.5" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemYellowColor"/>
                                                     <nil key="highlightedColor"/>
@@ -160,6 +159,8 @@
                                                 <constraint firstItem="LvX-hD-8Od" firstAttribute="top" secondItem="T2W-SJ-AO8" secondAttribute="topMargin" id="3Sh-gD-KKl"/>
                                                 <constraint firstItem="grD-mB-XnM" firstAttribute="top" secondItem="25f-fJ-C9f" secondAttribute="bottom" constant="3" id="5Mv-RX-juO"/>
                                                 <constraint firstAttribute="bottom" secondItem="EHF-nn-sLC" secondAttribute="bottom" constant="0.5" id="6Ow-rz-HVQ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TY1-Ng-p06" secondAttribute="trailing" constant="20" symbolic="YES" id="DPZ-Hm-C63"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EHF-nn-sLC" secondAttribute="trailing" constant="20" symbolic="YES" id="K3H-vI-ATm"/>
                                                 <constraint firstItem="LvX-hD-8Od" firstAttribute="leading" secondItem="T2W-SJ-AO8" secondAttribute="leadingMargin" constant="50" id="S3p-5N-jeP"/>
                                                 <constraint firstItem="25f-fJ-C9f" firstAttribute="leading" secondItem="T2W-SJ-AO8" secondAttribute="leading" constant="20" symbolic="YES" id="T0c-Ic-NHE"/>
                                                 <constraint firstItem="25f-fJ-C9f" firstAttribute="top" secondItem="T2W-SJ-AO8" secondAttribute="top" id="Vdo-Te-7R1"/>
