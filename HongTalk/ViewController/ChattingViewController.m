@@ -31,19 +31,17 @@
 @end
 
 @implementation ChattingViewController
--(NSMutableArray *)comments {
-    return [NSMutableArray array];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _uid = [[[FIRAuth auth] currentUser] uid];
     _comments = [NSMutableArray array];
     [[[self tabBarController] tabBar] setHidden: YES];
     
     [self setupDelegate];
     [[_messageTextView layer] setCornerRadius: 10];
     
-    _uid = [[[FIRAuth auth] currentUser] uid];
     [_sendButton addTarget:self action: @selector(createRoom) forControlEvents:UIControlEventTouchUpInside];
     [self checkRoom];
 }
@@ -133,7 +131,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *myCellId = @"MyMessageCell";
     NSString *destinationCellId = @"DestinationMessageCell";
-    if ( [[_comments objectAtIndex: indexPath.row] valueForKey: @"uid"] == _uid ){
+    NSLog(@"1인덱스%@", [[_comments objectAtIndex: 1] valueForKey: @"uid"]);
+    NSLog(@"0인덱스%@", [[_comments objectAtIndex: 0] valueForKey: @"uid"]);
+
+    // == 이랑 isEqual 차이 파악
+    if ( [[[_comments objectAtIndex: indexPath.row] valueForKey: @"uid"] isEqual: _uid] ){
         MyMessageCell *cell = [tableView dequeueReusableCellWithIdentifier: myCellId forIndexPath: indexPath];
         [[cell messageLabel] setText: [[_comments objectAtIndex: indexPath.row] valueForKey: @"message"]];
         
