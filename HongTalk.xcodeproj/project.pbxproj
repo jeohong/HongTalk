@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */; };
+		CF04C8FD29DE82CE00510C52 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04C8FC29DE82CE00510C52 /* ChatModel.m */; };
 		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
 		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
 		CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */; };
@@ -30,6 +31,8 @@
 		97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.release.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.release.xcconfig"; sourceTree = "<group>"; };
 		A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF04C8FB29DE82CE00510C52 /* ChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
+		CF04C8FC29DE82CE00510C52 /* ChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		CFADF18929DD0DD300ABCF4B /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 			children = (
 				CFADF18929DD0DD300ABCF4B /* UserModel.h */,
 				CFADF18A29DD0DD300ABCF4B /* UserModel.m */,
+				CF04C8FB29DE82CE00510C52 /* ChatModel.h */,
+				CF04C8FC29DE82CE00510C52 /* ChatModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
+				CF04C8FD29DE82CE00510C52 /* ChatModel.m in Sources */,
 				CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */,
 				CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */,
 				CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */,
