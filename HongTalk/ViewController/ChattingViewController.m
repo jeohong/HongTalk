@@ -16,9 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     [_messageTextView setDelegate: self];
-    [[_messageTextView layer] setBorderWidth: 2];
     [[_messageTextView layer] setCornerRadius: 10];
 }
 
