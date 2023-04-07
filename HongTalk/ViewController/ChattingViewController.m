@@ -99,7 +99,7 @@
         
         [[[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid]child: @"comments"] childByAutoId] setValue: value withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
             [self->_messageTextView setText: @""];
-            [self textViewDidChange: _messageTextView];
+            [self textViewDidChange: self->_messageTextView];
         }];
     }
 }
