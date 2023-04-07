@@ -25,6 +25,7 @@
 		CFB6CC3329DA463B005876B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB6CC3129DA463B005876B9 /* LaunchScreen.storyboard */; };
 		CFB6CC3629DA463B005876B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC3529DA463B005876B9 /* main.m */; };
 		CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */; };
+		CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF763B429E0030800287BBB /* SettingViewController.swift */; };
 		E8D9109917176953C7E47A21 /* Pods_HongTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		CFB6CC3529DA463B005876B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CFF763B429E0030800287BBB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HongTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */,
 				CF7AFA0C29DFA08F0095378E /* ChatListViewController.h */,
 				CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */,
+				CFF763B429E0030800287BBB /* SettingViewController.swift */,
+				CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				TargetAttributes = {
 					CFB6CC1F29DA463B005876B9 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -312,6 +318,7 @@
 				CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */,
 				CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */,
 				CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */,
+				CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,
@@ -461,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -479,6 +487,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/ViewController/HongTalk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -489,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -507,6 +519,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/ViewController/HongTalk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
