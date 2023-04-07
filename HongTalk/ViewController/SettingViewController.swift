@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
@@ -25,7 +26,14 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func pressedLogoutButton(_ sender: Any) {
-        print("로그아웃")
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+        
+        self.dismiss(animated: false)
     }
     
     @IBAction func pressedWithdrawalButton(_ sender: Any) {

@@ -14,9 +14,6 @@
 // Method
 -(void)setupLoginButton;
 
-// 임시 버튼
-- (IBAction)moveToView:(id)sender;
-
 @end
 
 @implementation LoginViewController
@@ -42,6 +39,12 @@
     
     [[self emailTextfield] setDelegate: (id)self];
     [[self passwordTextfield] setDelegate: (id)self];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [_loginButton setTitle: @"로그인" forState: UIControlStateNormal];
+    [_emailTextfield setText: @""];
+    [_passwordTextfield setText: @""];
 }
 
 - (void)pressedLoginButton:(id)sender {
