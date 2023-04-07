@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +56,7 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H5B-mD-Lzi">
-                                <rect key="frame" x="0.0" y="20" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" rowHeight="64" id="2cz-GT-Z5U" customClass="MyMessageCell">
@@ -189,12 +188,12 @@
                         <viewLayoutGuide key="safeArea" id="hHk-rh-MpS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gG0-Sb-2Im" firstAttribute="top" secondItem="H5B-mD-Lzi" secondAttribute="bottom" id="0ae-AU-gv1"/>
                             <constraint firstItem="swH-kH-j3C" firstAttribute="leading" secondItem="hHk-rh-MpS" secondAttribute="leading" constant="30" id="7Zr-j3-odY"/>
                             <constraint firstItem="swH-kH-j3C" firstAttribute="bottom" secondItem="hHk-rh-MpS" secondAttribute="bottom" constant="-10" id="8SW-Qs-OfT"/>
                             <constraint firstItem="hHk-rh-MpS" firstAttribute="trailing" secondItem="H5B-mD-Lzi" secondAttribute="trailing" id="ESB-yB-ZSv"/>
                             <constraint firstItem="gG0-Sb-2Im" firstAttribute="leading" secondItem="hHk-rh-MpS" secondAttribute="leading" id="EZp-44-Icv"/>
                             <constraint firstItem="hHk-rh-MpS" firstAttribute="trailing" secondItem="Y3R-UP-Afp" secondAttribute="trailing" constant="5" id="Fbd-6s-iut"/>
+                            <constraint firstItem="H5B-mD-Lzi" firstAttribute="bottom" secondItem="gG0-Sb-2Im" secondAttribute="top" id="IkP-0A-3Ra"/>
                             <constraint firstItem="H5B-mD-Lzi" firstAttribute="top" secondItem="hHk-rh-MpS" secondAttribute="top" id="Wvo-uT-uba"/>
                             <constraint firstItem="Y3R-UP-Afp" firstAttribute="leading" secondItem="swH-kH-j3C" secondAttribute="trailing" constant="10" id="Xoh-5o-oZn"/>
                             <constraint firstItem="swH-kH-j3C" firstAttribute="top" secondItem="gG0-Sb-2Im" secondAttribute="top" priority="100" constant="10" id="aWh-AW-oAe"/>
@@ -224,7 +223,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ogv-34-SZ8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsListCell" rowHeight="70" id="NaW-yj-HzX" customClass="FriendsListCell">
@@ -355,7 +354,7 @@
                     <tabBarItem key="tabBarItem" title="친구" image="person.3" catalog="system" id="ewY-HV-50j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5TB-Pk-n6d">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

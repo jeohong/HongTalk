@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */; };
 		CF04C8FD29DE82CE00510C52 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04C8FC29DE82CE00510C52 /* ChatModel.m */; };
+		CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */; };
 		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
 		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
 		CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */; };
@@ -33,6 +34,8 @@
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF04C8FB29DE82CE00510C52 /* ChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
 		CF04C8FC29DE82CE00510C52 /* ChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
+		CF7AFA0929DF91960095378E /* NSNumber+Daytime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Daytime.h"; sourceTree = "<group>"; };
+		CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Daytime.m"; sourceTree = "<group>"; };
 		CFADF18929DD0DD300ABCF4B /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 			children = (
 				CFAEDB9929DBC935008CF5A7 /* RegExOfTextfield.h */,
 				CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */,
+				CF7AFA0929DF91960095378E /* NSNumber+Daytime.h */,
+				CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */,
 			);
 			path = shareClass;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				CFB6CC2B29DA463B005876B9 /* ViewController.m in Sources */,
 				CFB6CC2529DA463B005876B9 /* AppDelegate.m in Sources */,
 				CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */,
+				CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,

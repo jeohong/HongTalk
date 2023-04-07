@@ -8,6 +8,8 @@
 #import "ChattingViewController.h"
 #import "ChatModel.h"
 #import "UserModel.h"
+#import "NSNumber+Daytime.h"
+
 @import FirebaseDatabase;
 @import FirebaseAuth;
 
@@ -44,6 +46,15 @@
     
     [_sendButton addTarget:self action: @selector(createRoom) forControlEvents:UIControlEventTouchUpInside];
     [self checkRoom];
+    
+    // 키보드 나타날때 뷰 올려주기
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    // 키보드 숨기기
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
 }
 
 -(void)setupDelegate {
@@ -57,18 +68,21 @@
     
     [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         for (FIRDataSnapshot *data in snapshot.children.allObjects) {
-                NSDictionary *chatRoomDic = (NSDictionary *)data.value;
-                ChatModel *chatModel = [[ChatModel alloc] initWithDictionary:chatRoomDic];
-                if ([chatModel.users[self->_destinationUid] isEqual: @YES]) {
-                    self.chatRoomUid = data.key;
-                    [self->_sendButton setEnabled: YES];
-                    [self getDestinationInfo];
-                }
+            NSDictionary *chatRoomDic = (NSDictionary *)data.value;
+            ChatModel *chatModel = [[ChatModel alloc] initWithDictionary:chatRoomDic];
+            if ([chatModel.users[self->_destinationUid] isEqual: @YES]) {
+                self.chatRoomUid = data.key;
+                [self->_sendButton setEnabled: YES];
+                [self getDestinationInfo];
+            }
         }
     }];
 }
 
 -(void)createRoom {
+    if ([[_messageTextView text] isEqual: @""]) {
+        return;
+    }
     NSDictionary *createRoomInfo = @{@"users" : @{_uid: @YES, _destinationUid: @YES}};
     
     if (_chatRoomUid == nil) {
@@ -78,9 +92,14 @@
                 [self checkRoom];
         }];
     } else {
-        NSDictionary *value = @{@"uid": self.uid, @"message": self->_messageTextView.text};
+        NSDictionary *value = @{@"uid": self.uid,
+                                @"message": self->_messageTextView.text,
+                                @"timestamp": FIRServerValue.timestamp
+        };
+        
         [[[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid]child: @"comments"] childByAutoId] setValue: value withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-            self->_messageTextView.text =@"";
+            [self->_messageTextView setText: @""];
+            [self textViewDidChange: _messageTextView];
         }];
     }
 }
@@ -120,6 +139,7 @@
     } else {
         self.textviewHeight.constant = newHeight;
     }
+    
     [self.view layoutIfNeeded];
 }
 
@@ -131,13 +151,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *myCellId = @"MyMessageCell";
     NSString *destinationCellId = @"DestinationMessageCell";
-    NSLog(@"1인덱스%@", [[_comments objectAtIndex: 1] valueForKey: @"uid"]);
-    NSLog(@"0인덱스%@", [[_comments objectAtIndex: 0] valueForKey: @"uid"]);
-
-    // == 이랑 isEqual 차이 파악
+    
     if ( [[[_comments objectAtIndex: indexPath.row] valueForKey: @"uid"] isEqual: _uid] ){
         MyMessageCell *cell = [tableView dequeueReusableCellWithIdentifier: myCellId forIndexPath: indexPath];
         [[cell messageLabel] setText: [[_comments objectAtIndex: indexPath.row] valueForKey: @"message"]];
+        
+        // Time stamp
+        NSNumber *time = [[_comments objectAtIndex: indexPath.row] valueForKey: @"timestamp"];
+        [[cell timestampLabel] setText: [time toDayTime]];
         
         return cell;
     }else {
@@ -152,6 +173,8 @@
                 [[[cell profileImage] layer] setCornerRadius: cell.profileImage.frame.size.width / 2];
             });
         }] resume];
+        NSNumber *time = [[_comments objectAtIndex: indexPath.row] valueForKey: @"timestamp"];
+        [[cell timestampLabel] setText: [time toDayTime]];
         
         return cell;
     }
@@ -159,6 +182,36 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+// MARK: 키보드에 따른 뷰 올리기
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0, -keyboardRect.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+// 키보드 숨기기
+- (void)dismissKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 @end

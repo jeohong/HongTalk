@@ -240,12 +240,12 @@
 // 키보드에 따른 뷰 올리기, 내리기
 - (void)keyboardWillShow:(NSNotification *)notification {
     NSDictionary *userInfo = [notification userInfo];
-    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    //    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     [UIView animateWithDuration:duration animations:^{
-//        self.view.frame = CGRectMake(0, -keyboardRect.size.height, self.view.frame.size.width, self.view.frame.size.height);
-                self.view.frame = CGRectMake(0, -(self.view.frame.size.height - (self.checkPasswordLabel.frame.origin.y)), self.view.frame.size.width, self.view.frame.size.height);
+        //        self.view.frame = CGRectMake(0, -keyboardRect.size.height, self.view.frame.size.width, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -(self.view.frame.size.height - (self.checkPasswordLabel.frame.origin.y)), self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 
