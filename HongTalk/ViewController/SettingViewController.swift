@@ -21,7 +21,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func pressedNotificationSettingButton(_ sender: Any) {
-        print("알림 세팅")
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
     @IBAction func pressedLogoutButton(_ sender: Any) {
