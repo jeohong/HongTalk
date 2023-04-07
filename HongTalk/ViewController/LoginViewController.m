@@ -162,10 +162,4 @@
     return YES;
 }
 
-- (IBAction)moveToView:(id)sender {
-    UIStoryboard *tempSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ChattingViewController *tempVC = (ChattingViewController *)[tempSB instantiateViewControllerWithIdentifier:@"ChattingViewController"];
-    tempVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:tempVC animated: NO completion:nil];
-}
 @end

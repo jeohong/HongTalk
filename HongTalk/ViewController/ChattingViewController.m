@@ -57,6 +57,11 @@
     gestureRecognizer.cancelsTouchesInView = NO;
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewDidDisappear: animated];
+    [[[self tabBarController] tabBar] setHidden: NO];
+}
+
 -(void)setupDelegate {
     [_messageTextView setDelegate: self];
     [_chattingTableView setDelegate: self];
