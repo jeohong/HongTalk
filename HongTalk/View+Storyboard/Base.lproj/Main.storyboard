@@ -334,6 +334,9 @@
                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system" imagePlacement="top" title="편집">
                                             <color key="baseForegroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressedEditButton:" destination="ie7-3u-sQd" eventType="touchUpInside" id="KQv-5i-Cvf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -358,6 +361,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
+                                <connections>
+                                    <action selector="pressedLogoutButton:" destination="ie7-3u-sQd" eventType="touchUpInside" id="Y9o-Bf-rAp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-47-vsa">
                                 <rect key="frame" x="10" y="466" width="373" height="40"/>
@@ -368,6 +374,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원탈퇴"/>
+                                <connections>
+                                    <action selector="pressedWithdrawalButton:" destination="ie7-3u-sQd" eventType="touchUpInside" id="Gff-XD-j90"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ju-tE-pvF">
                                 <rect key="frame" x="10" y="346" width="373" height="40"/>
@@ -378,6 +387,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="알림 설정"/>
+                                <connections>
+                                    <action selector="pressedNotificationSettingButton:" destination="ie7-3u-sQd" eventType="touchUpInside" id="2GH-mE-la2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zIH-2S-0QZ"/>
@@ -399,6 +411,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="개인설정" image="rectangle.and.pencil.and.ellipsis" catalog="system" id="s1J-CS-QRk"/>
                     <navigationItem key="navigationItem" id="lE8-kM-zcr"/>
+                    <connections>
+                        <outlet property="commentLabel" destination="6Ca-92-Q36" id="KTc-Wh-zv9"/>
+                        <outlet property="nameLabel" destination="IK5-ad-N0P" id="IQD-Jg-bou"/>
+                        <outlet property="profileImage" destination="ffd-3C-h6s" id="iVh-oV-XGe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xId-ne-liB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
