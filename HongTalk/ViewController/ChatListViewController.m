@@ -36,12 +36,6 @@
     [self getChatroomsList];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewDidAppear: animated];
-    
-    [self viewDidLoad];
-}
-
 -(void)getChatroomsList {
     NSString *usersUid = [NSString stringWithFormat:@"users/%@", _uid];
     [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -51,7 +45,7 @@
             ChatModel *chatModel = [[ChatModel alloc] initWithDictionary:chatRoomDic];
             [self->_chatrooms addObject: chatModel];
         }
-          
+        
         [self->_chatListTableView reloadData];
     }];
 }
@@ -67,7 +61,7 @@
             [_destinationUsers addObject:destinationUid];
         }
     }
-    
+
     [[[[[FIRDatabase database] reference] child: @"users"] child: destinationUid] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         UserModel *userModel = [[UserModel alloc] init];
         [userModel setValuesForKeysWithDictionary: snapshot.value];
