@@ -311,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="5775.1999999999998" y="90.404797601199405"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat List View Controller-->
         <scene sceneID="Hqc-zQ-Igx">
             <objects>
-                <viewController id="l6r-SZ-4TQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatListViewController" id="l6r-SZ-4TQ" customClass="ChatListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLp-Jv-E7V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +323,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="Gso-oL-7j7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatListCell" rowHeight="70" id="Gso-oL-7j7" customClass="ChatListCell">
                                         <rect key="frame" x="0.0" y="50" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gso-oL-7j7" id="MzX-ky-4CP">
@@ -367,8 +367,18 @@
                                                 <constraint firstItem="6h6-pu-eVg" firstAttribute="leading" secondItem="Grn-DV-EMe" secondAttribute="leading" id="r4s-Aj-eQi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatImage" destination="HKa-UD-r7F" id="THd-LE-Ehc"/>
+                                            <outlet property="lastMessageLabel" destination="6h6-pu-eVg" id="Zrl-NA-xX3"/>
+                                            <outlet property="timestampLabel" destination="Q4e-nb-3fc" id="Agz-4F-Uwb"/>
+                                            <outlet property="usersNameLabel" destination="Grn-DV-EMe" id="kSn-CN-6tr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="l6r-SZ-4TQ" id="6Ly-wM-dpb"/>
+                                    <outlet property="delegate" destination="l6r-SZ-4TQ" id="VzX-IV-go6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bfB-fi-WGG"/>
@@ -381,6 +391,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GW7-yz-Tr6"/>
+                    <connections>
+                        <outlet property="chatListTableView" destination="dF5-4d-84N" id="43n-ml-7xc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7d-tu-BkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

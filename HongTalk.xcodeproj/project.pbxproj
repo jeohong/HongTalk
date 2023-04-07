@@ -10,6 +10,7 @@
 		A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */; };
 		CF04C8FD29DE82CE00510C52 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04C8FC29DE82CE00510C52 /* ChatModel.m */; };
 		CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */; };
+		CF7AFA0E29DFA08F0095378E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */; };
 		CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18A29DD0DD300ABCF4B /* UserModel.m */; };
 		CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */; };
 		CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */; };
@@ -36,6 +37,8 @@
 		CF04C8FC29DE82CE00510C52 /* ChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		CF7AFA0929DF91960095378E /* NSNumber+Daytime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Daytime.h"; sourceTree = "<group>"; };
 		CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Daytime.m"; sourceTree = "<group>"; };
+		CF7AFA0C29DFA08F0095378E /* ChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
+		CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
 		CFADF18929DD0DD300ABCF4B /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		CFADF18A29DD0DD300ABCF4B /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		CFADF18C29DD15F000ABCF4B /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				CFADF18D29DD15F000ABCF4B /* FriendsViewController.m */,
 				CFADF19229DD6CDC00ABCF4B /* ChattingViewController.h */,
 				CFADF19329DD6CDC00ABCF4B /* ChattingViewController.m */,
+				CF7AFA0C29DFA08F0095378E /* ChatListViewController.h */,
+				CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				CFADF18B29DD0DD300ABCF4B /* UserModel.m in Sources */,
 				CFADF19429DD6CDC00ABCF4B /* ChattingViewController.m in Sources */,
 				CFAEDB9B29DBC935008CF5A7 /* RegExOfTextfield.m in Sources */,
+				CF7AFA0E29DFA08F0095378E /* ChatListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
