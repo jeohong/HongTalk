@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
@@ -15,6 +17,7 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadProfile()
     }
     
     @IBAction func pressedEditButton(_ sender: Any) {
@@ -28,16 +31,33 @@ class SettingViewController: UIViewController {
     @IBAction func pressedLogoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
         
         self.dismiss(animated: false)
     }
     
-    @IBAction func pressedWithdrawalButton(_ sender: Any) {
-        print("회원탈퇴")
+    func loadProfile() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Database.database().reference().child("users").child(uid).observe(.value) { snapshot in
+            let userModel = UserModel()
+            userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
+            
+            self.nameLabel.text = userModel.userName
+            self.commentLabel.text = userModel.comment
+            
+            // image
+            let url = URL(string: userModel.profileImageUrl)
+            URLSession.shared.dataTask(with: url!) { data, response, error in
+                DispatchQueue.main.async {
+                    self.profileImage.image = UIImage(data: data!)
+                    self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
+                }
+            }.resume()
+        }
     }
-    
 }
+    
