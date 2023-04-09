@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, strong) NSNumber *timestamp;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSNumber *> *readUsers;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryRepresentation;

@@ -23,12 +23,14 @@
 @property (nonatomic) NSUInteger peopleCount;
 @property (nonatomic) NSString *uid;
 @property (nonatomic) NSString *chatRoomUid;
+@property (nonatomic) NSInteger peoplCount;
 
 // method
 -(void)setupDelegate;
 -(void)checkRoom;
 -(void)getDestinationInfo;
 -(void)getMessageList;
+-(void)setReadCountLabel: (UILabel *) label index: (NSInteger) index;
 
 @end
 
@@ -109,22 +111,58 @@
     }
 }
 
--(void)getMessageList {
-    
-    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"comments"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        [self->_comments removeAllObjects];
-        for (FIRDataSnapshot *data in [[snapshot children] allObjects]) {
+- (void)getMessageList {
+    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"comments"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        [self.comments removeAllObjects];
+        NSMutableDictionary *readUserDic = [NSMutableDictionary dictionary];
+        
+        for (FIRDataSnapshot *data in snapshot.children) {
+            NSString *key = data.key;
             Comment *comment = [[Comment alloc] initWithDictionary: data.value];
-            [self->_comments addObject:comment];
+            Comment *commentMotify = [[Comment alloc] initWithDictionary: data.value];
+            commentMotify.readUsers[self->_uid] = @YES;
+            NSLog(@"%@", commentMotify.readUsers);
+//            readUserDic[key] = [commentMotify dictionaryRepresentation];
+            
+            [self->_comments addObject: comment];
         }
         
-        [self->_chattingTableView reloadData];
-        
-        if ([self->_comments count] > 0) {
-            [self->_chattingTableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow: [self->_comments count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        NSDictionary *nsDic = readUserDic;
+        if (![[[[self->_comments lastObject] readUsers] allKeys] containsObject: self->_uid]) {
+            [snapshot.ref updateChildValues:(NSDictionary *)nsDic withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                [self->_chattingTableView reloadData];
+
+                if (self.comments.count > 0) {
+                    [self->_chattingTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                }
+            }];
+        } else {
+            [self->_chattingTableView reloadData];
+            
+            if (self.comments.count > 0) {
+                [self->_chattingTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            }
         }
     }];
 }
+
+
+//-(void)getMessageList {
+//
+//    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"comments"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//        [self->_comments removeAllObjects];
+//        for (FIRDataSnapshot *data in [[snapshot children] allObjects]) {
+//            Comment *comment = [[Comment alloc] initWithDictionary: data.value];
+//            [self->_comments addObject:comment];
+//        }
+//
+//        [self->_chattingTableView reloadData];
+//
+//        if ([self->_comments count] > 0) {
+//            [self->_chattingTableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow: [self->_comments count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//        }
+//    }];
+//}
 
 -(void)getDestinationInfo {
     [[[[[FIRDatabase database] reference] child: @"users"] child: _destinationUid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -132,6 +170,33 @@
         [self->_destinationUserModel setValuesForKeysWithDictionary:(NSDictionary *)snapshot.value];
         [self getMessageList];
     }];
+}
+
+-(void)setReadCountLabel:(UILabel *)label index:(NSInteger)index {
+    NSInteger readCount = [[[_comments objectAtIndex: index] readUsers] count];
+    
+    if (!_peoplCount) {
+        [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"users"] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            NSDictionary *dic = snapshot.value;
+            self->_peoplCount = [dic count];
+            NSInteger noReadCount = self->_peoplCount - readCount;
+            
+            if (noReadCount > 0) {
+                [label setHidden: NO];
+                [label setText: [NSString stringWithFormat: @"%ld", noReadCount]];
+            } else {
+                [label setHidden:YES];
+            }
+        }];
+    } else {
+        NSInteger noReadCount = _peopleCount - readCount;
+        if (noReadCount > 0) {
+            [label setHidden: NO];
+            [label setText: [NSString stringWithFormat: @"%ld", noReadCount]];
+        } else {
+            label.hidden = YES;
+        }
+    }
 }
 
 // MARK: TextView Delegate Methods
@@ -164,6 +229,7 @@
         // Time stamp
         NSNumber *time = [[_comments objectAtIndex: indexPath.row] valueForKey: @"timestamp"];
         [[cell timestampLabel] setText: [time toDayTime]];
+        [self setReadCountLabel: [cell readCountLabel] index: [indexPath row]];
         
         return cell;
     }else {
@@ -180,6 +246,7 @@
         }] resume];
         NSNumber *time = [[_comments objectAtIndex: indexPath.row] valueForKey: @"timestamp"];
         [[cell timestampLabel] setText: [time toDayTime]];
+        [self setReadCountLabel: [cell readCountLabel] index: [indexPath row]];
         
         return cell;
     }

@@ -15,6 +15,14 @@
         _uid = dictionary[@"uid"];
         _message = dictionary[@"message"];
         _timestamp = dictionary[@"timestamp"];
+        
+        // readCount
+        _readUsers = [NSMutableDictionary new];
+        NSDictionary *readUsersDictionary = dictionary[@"readUsers"];
+        for (NSString *userId in readUsersDictionary) {
+            NSNumber *boolNumber = readUsersDictionary[userId];
+            [_readUsers setObject:boolNumber forKey:userId];
+        }
     }
     return self;
 }
@@ -24,7 +32,15 @@
     [dictionary setObject:_uid forKey:@"uid"];
     [dictionary setObject:_message forKey:@"message"];
     [dictionary setObject:_timestamp forKey:@"timestamp"];
-
+    
+    // readCount
+    NSMutableDictionary *readUsersDictionary = [NSMutableDictionary new];
+    for (NSString *userId in _readUsers) {
+        NSNumber *boolNumber = _readUsers[userId];
+        [readUsersDictionary setObject:boolNumber forKey:userId];
+    }
+    [dictionary setObject:readUsersDictionary forKey:@"readUsers"];
+    
     return dictionary;
 }
 
