@@ -20,13 +20,11 @@ class SettingViewController: UIViewController {
         loadProfile()
     }
     
-    @IBAction func pressedEditButton(_ sender: Any) {
-        print("프로필 편집")
-        
+    @IBAction func pressedEditButton(_ sender: Any) {        
         let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
         editProfileVC.modalPresentationStyle = .fullScreen
         
-        self.present(editProfileVC, animated: false)
+        self.present(editProfileVC, animated: true)
     }
     
     @IBAction func pressedNotificationSettingButton(_ sender: Any) {
