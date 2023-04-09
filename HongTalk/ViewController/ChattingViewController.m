@@ -23,7 +23,6 @@
 @property (nonatomic) NSUInteger peopleCount;
 @property (nonatomic) NSString *uid;
 @property (nonatomic) NSString *chatRoomUid;
-@property (nonatomic) NSInteger peoplCount;
 
 // method
 -(void)setupDelegate;
@@ -62,6 +61,8 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewDidDisappear: animated];
     [[[self tabBarController] tabBar] setHidden: NO];
+    
+    [_databaseRef removeObserverWithHandle: _observe];
 }
 
 -(void)setupDelegate {
@@ -112,8 +113,9 @@
 }
 
 - (void)getMessageList {
-    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"comments"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        [self.comments removeAllObjects];
+    _databaseRef = [[[[[FIRDatabase database]reference]child: @"chatrooms"] child:_chatRoomUid] child: @"comments"];
+    _observe = [_databaseRef observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        [self->_comments removeAllObjects];
         NSMutableDictionary *readUserDic = [NSMutableDictionary dictionary];
         
         for (FIRDataSnapshot *data in snapshot.children) {
@@ -121,7 +123,6 @@
             Comment *comment = [[Comment alloc] initWithDictionary: data.value];
             Comment *commentMotify = [[Comment alloc] initWithDictionary: data.value];
             commentMotify.readUsers[self->_uid] = @YES;
-            NSLog(@"%@", commentMotify.readUsers);
             
             // 이곳이 문제 JSON 으로 변환하는 과정에서 오류가 발생하는것으로 보여짐
             readUserDic[key] = [commentMotify dictionaryRepresentation];
@@ -133,7 +134,7 @@
         if (![[[[self->_comments lastObject] readUsers] allKeys] containsObject: self->_uid]) {
             [snapshot.ref updateChildValues:(NSDictionary *)nsDic withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
                 [self->_chattingTableView reloadData];
-
+                
                 if (self.comments.count > 0) {
                     [self->_chattingTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
                 }
@@ -176,13 +177,11 @@
 
 -(void)setReadCountLabel:(UILabel *)label index:(NSInteger)index {
     NSInteger readCount = [[[_comments objectAtIndex: index] readUsers] count];
-    
-    if (!_peoplCount) {
+    if (!_peopleCount) {
         [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"users"] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
             NSDictionary *dic = snapshot.value;
-            self->_peoplCount = [dic count];
-            NSInteger noReadCount = self->_peoplCount - readCount;
-            
+            self->_peopleCount = [dic count];
+            NSInteger noReadCount = self->_peopleCount - readCount;
             if (noReadCount > 0) {
                 [label setHidden: NO];
                 [label setText: [NSString stringWithFormat: @"%ld", noReadCount]];
@@ -191,7 +190,7 @@
             }
         }];
     } else {
-        NSInteger noReadCount = _peopleCount - readCount;
+        NSInteger noReadCount = self->_peopleCount - readCount;
         if (noReadCount > 0) {
             [label setHidden: NO];
             [label setText: [NSString stringWithFormat: @"%ld", noReadCount]];
