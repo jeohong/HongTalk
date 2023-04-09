@@ -20,7 +20,7 @@ class SettingViewController: UIViewController {
         loadProfile()
     }
     
-    @IBAction func pressedEditButton(_ sender: Any) {        
+    @IBAction func pressedEditButton(_ sender: Any) {
         let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
         editProfileVC.modalPresentationStyle = .fullScreen
         
@@ -54,6 +54,7 @@ class SettingViewController: UIViewController {
             
             // image
             let url = URL(string: userModel.profileImageUrl)
+            print(url)
             URLSession.shared.dataTask(with: url!) { data, response, error in
                 DispatchQueue.main.async {
                     self.profileImage.image = UIImage(data: data!)

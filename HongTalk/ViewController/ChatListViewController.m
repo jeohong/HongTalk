@@ -62,7 +62,7 @@
         }
     }
 
-    [[[[[FIRDatabase database] reference] child: @"users"] child: destinationUid] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: destinationUid] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         UserModel *userModel = [[UserModel alloc] init];
         [userModel setValuesForKeysWithDictionary: snapshot.value];
         

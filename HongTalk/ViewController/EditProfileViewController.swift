@@ -17,14 +17,22 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var imageEditButton: UIButton!
     @IBOutlet weak var correctNameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var defaultImageButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     let uid = Auth.auth().currentUser?.uid
+    var userModel = UserModel()
+    var isDefaultImage = false
+    var isImageChange = false
+    var setupImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.imageEditButton.isHidden = true
         self.correctNameLabel.isHidden = true
+        self.defaultImageButton.isHidden = true
+        
         self.nameTextField.delegate = self
         
         loadUserInformation()
@@ -32,7 +40,36 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func pressedSaveButton(_ sender: Any) {
         guard let uid = self.uid else { return }
+        
+        self.cancelButton.isHidden = true
+        self.editButton.isEnabled = false
+        self.editButton.backgroundColor = .gray
+        self.editButton.setTitle("변경사항 저장중...", for: .normal)
+        
         // 이미지 수정
+        var imageRef = Storage.storage().reference().child("userImages")
+        // 기본이미지로 설정했을 경우
+        if isDefaultImage {
+            let deleteRef = Storage.storage().reference().child("userImages").child(uid)
+            deleteRef.delete { err in
+                if err == nil {
+                    print("프로필 이미지 삭제")
+                } else {
+                    print("삭제 실패")
+                }
+            }
+            imageRef = imageRef.child("basicProfile.png")
+            setupDatabase(imageRef, uid)
+        } else {
+            if isImageChange {
+                let image = self.profileImage.image!.jpegData(compressionQuality: 0.1)
+                imageRef = imageRef.child(uid)
+                
+                imageRef.putData(image!) { data, err in
+                    self.setupDatabase(imageRef, uid)
+                }
+            }
+        }
         
         // 유저 이름 수정
         if self.nameTextField.text != "" {
@@ -47,6 +84,24 @@ class EditProfileViewController: UIViewController {
             let dic = ["comment":stateMessageTextField.text!]
             Database.database().reference().child("users").child(uid).updateChildValues(dic)
         }
+        
+        // 이미지를 변경하지 않은 경우 dismiss
+        if !isImageChange {
+            self.dismiss(animated: true)
+        }
+    }
+    
+    func setupDatabase(_ imageRef: StorageReference, _ uid: String) {
+        imageRef.downloadURL { url, err in
+            Database.database().reference().child("users").child(uid).child("profileImageUrl").setValue(url?.absoluteString) { err, ref in
+                if (err == nil) {
+                    self.dismiss(animated: true)
+                } else {
+                    // alert 로 경고 띄워주기 ( 업데이트 실패 )
+                    print("실패")
+                }
+            }
+        }
     }
     
     @IBAction func pressedCancelButton(_ sender: Any) {
@@ -54,24 +109,38 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func pressendImageEditButton(_ sender: Any) {
+        isImageChange = true
+        let imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker, animated: true)
+    }
+    
+    @IBAction func pressedDefaultImage(_ sender: Any) {
+        self.profileImage.image = UIImage(named: "basicProfile")
+        isDefaultImage = true
+        isImageChange = true
     }
     
     func loadUserInformation() {
         guard let uid = self.uid else { return }
         
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
-            let userModel = UserModel()
-            userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
+        Database.database().reference().child("users").child(uid).observe(.value) { snapshot in
+            self.userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
             
-            self.nameTextField.placeholder = userModel.userName
-            self.stateMessageTextField.text = userModel.comment
+            self.nameTextField.placeholder = self.userModel.userName
+            self.stateMessageTextField.text = self.userModel.comment
             
-            let url = URL(string: userModel.profileImageUrl)
+            let url = URL(string: self.userModel.profileImageUrl)
             URLSession.shared.dataTask(with: url!) { data, response, error in
                 DispatchQueue.main.async {
                     self.profileImage.image = UIImage(data: data!)
                     self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
                     self.imageEditButton.isHidden = false
+                    self.defaultImageButton.isHidden = false
                 }
             }.resume()
         }
@@ -90,4 +159,25 @@ extension EditProfileViewController: UITextFieldDelegate {
             self.editButton.backgroundColor = .blue
         }
     }
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        profileImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        isDefaultImage = false
+        setupImage = true
+        
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        if !setupImage { isImageChange = false }
+        dismiss(animated: true)
+    }
+}
+
+// Navigation Delegate
+extension EditProfileViewController: UINavigationControllerDelegate {
+    
 }

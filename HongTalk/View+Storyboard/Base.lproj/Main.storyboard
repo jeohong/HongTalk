@@ -571,7 +571,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UYS-BK-nOo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UYS-BK-nOo">
                                 <rect key="frame" x="112.5" y="100" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="QEr-Im-ulq"/>
@@ -608,15 +608,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-pG-yMa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-pG-yMa">
                                 <rect key="frame" x="112.5" y="100" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="LgI-yc-3ZK"/>
                                     <constraint firstAttribute="width" constant="150" id="k6g-i3-hOR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="이미지 변경">
+                                <state key="normal" title="이미지 편집">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
@@ -643,11 +642,26 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-D7-9l4">
+                                <rect key="frame" x="132.5" y="62" width="110" height="30"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="dkC-kU-A27"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="기본이미지 설정">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedDefaultImage:" destination="9Rn-O3-fZJ" eventType="touchUpInside" id="KfL-0n-tip"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qMU-HJ-35j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3dg-Xi-YJa" firstAttribute="top" secondItem="PD7-ec-ZJx" secondAttribute="bottom" constant="5" id="2fZ-bg-1gy"/>
+                            <constraint firstItem="UYS-BK-nOo" firstAttribute="top" secondItem="5Iy-D7-9l4" secondAttribute="bottom" constant="8" id="43D-Ns-B9j"/>
                             <constraint firstItem="UYS-BK-nOo" firstAttribute="top" secondItem="qMU-HJ-35j" secondAttribute="top" constant="80" id="9tt-2Q-oLU"/>
                             <constraint firstItem="EVh-eq-WnT" firstAttribute="bottom" secondItem="PD7-ec-ZJx" secondAttribute="bottom" id="A9U-nY-nBU"/>
                             <constraint firstItem="cYL-ug-23s" firstAttribute="leading" secondItem="qMU-HJ-35j" secondAttribute="leading" constant="10" id="Crf-0n-mbK"/>
@@ -656,6 +670,7 @@
                             <constraint firstItem="XXa-pG-yMa" firstAttribute="centerX" secondItem="UYS-BK-nOo" secondAttribute="centerX" id="G8h-aF-AUK"/>
                             <constraint firstItem="3dg-Xi-YJa" firstAttribute="leading" secondItem="qMU-HJ-35j" secondAttribute="leading" constant="10" id="KOr-Kr-4Us"/>
                             <constraint firstItem="XXa-pG-yMa" firstAttribute="centerY" secondItem="UYS-BK-nOo" secondAttribute="centerY" id="Kka-Jd-8Qf"/>
+                            <constraint firstItem="5Iy-D7-9l4" firstAttribute="centerX" secondItem="aFO-8O-lqw" secondAttribute="centerX" id="PdA-nk-Ex5"/>
                             <constraint firstItem="opq-ek-job" firstAttribute="leading" secondItem="pnE-60-PZr" secondAttribute="leading" id="PwM-Hm-SB8"/>
                             <constraint firstItem="cYL-ug-23s" firstAttribute="top" secondItem="y8N-s9-SNr" secondAttribute="bottom" constant="10" id="TV4-ZH-VyJ"/>
                             <constraint firstItem="y8N-s9-SNr" firstAttribute="top" secondItem="pnE-60-PZr" secondAttribute="bottom" constant="20" id="WNd-FV-cBm"/>
@@ -672,7 +687,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="cYL-ug-23s" id="D7w-4c-BBN"/>
                         <outlet property="correctNameLabel" destination="EVh-eq-WnT" id="f6b-eg-43F"/>
+                        <outlet property="defaultImageButton" destination="5Iy-D7-9l4" id="hHd-L4-o2i"/>
                         <outlet property="editButton" destination="y8N-s9-SNr" id="h0o-Lk-LCJ"/>
                         <outlet property="imageEditButton" destination="XXa-pG-yMa" id="BUj-uG-BBK"/>
                         <outlet property="nameTextField" destination="3dg-Xi-YJa" id="wVU-Zv-HHx"/>
