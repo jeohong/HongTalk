@@ -15,15 +15,38 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var stateMessageTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var imageEditButton: UIButton!
+    @IBOutlet weak var correctNameLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    
+    let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.imageEditButton.isHidden = true
+        self.correctNameLabel.isHidden = true
+        self.nameTextField.delegate = self
+        
         loadUserInformation()
     }
     
     @IBAction func pressedSaveButton(_ sender: Any) {
+        guard let uid = self.uid else { return }
+        // 이미지 수정
+        
+        // 유저 이름 수정
+        if self.nameTextField.text != "" {
+            if (correctNameLabel.isHidden) {
+                let dic = ["userName":nameTextField.text!]
+                Database.database().reference().child("users").child(uid).updateChildValues(dic)
+            }
+        }
+        
+        // 상태메세지 수정
+        if self.stateMessageTextField.text != "" {
+            let dic = ["comment":stateMessageTextField.text!]
+            Database.database().reference().child("users").child(uid).updateChildValues(dic)
+        }
     }
     
     @IBAction func pressedCancelButton(_ sender: Any) {
@@ -34,14 +57,14 @@ class EditProfileViewController: UIViewController {
     }
     
     func loadUserInformation() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = self.uid else { return }
         
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
             let userModel = UserModel()
             userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
             
             self.nameTextField.placeholder = userModel.userName
-            self.stateMessageTextField.placeholder = userModel.comment
+            self.stateMessageTextField.text = userModel.comment
             
             let url = URL(string: userModel.profileImageUrl)
             URLSession.shared.dataTask(with: url!) { data, response, error in
@@ -53,5 +76,18 @@ class EditProfileViewController: UIViewController {
             }.resume()
         }
         
+    }
+}
+
+extension EditProfileViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.correctNameLabel.isHidden = (RegExOfTextfield.sharedInstance().checkName(textField.text!) || (textField.text == ""))
+        self.editButton.isEnabled = self.correctNameLabel.isHidden
+        
+        if !self.editButton.isEnabled {
+            self.editButton.backgroundColor = .gray
+        } else {
+            self.editButton.backgroundColor = .blue
+        }
     }
 }

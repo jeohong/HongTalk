@@ -637,12 +637,19 @@
                                     <action selector="pressedCancelButton:" destination="9Rn-O3-fZJ" eventType="touchUpInside" id="Xv0-yj-Ns5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 닉네임은 2글자 이상 10글자 이하입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVh-eq-WnT">
+                                <rect key="frame" x="162.5" y="329" width="202.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qMU-HJ-35j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3dg-Xi-YJa" firstAttribute="top" secondItem="PD7-ec-ZJx" secondAttribute="bottom" constant="5" id="2fZ-bg-1gy"/>
                             <constraint firstItem="UYS-BK-nOo" firstAttribute="top" secondItem="qMU-HJ-35j" secondAttribute="top" constant="80" id="9tt-2Q-oLU"/>
+                            <constraint firstItem="EVh-eq-WnT" firstAttribute="bottom" secondItem="PD7-ec-ZJx" secondAttribute="bottom" id="A9U-nY-nBU"/>
                             <constraint firstItem="cYL-ug-23s" firstAttribute="leading" secondItem="qMU-HJ-35j" secondAttribute="leading" constant="10" id="Crf-0n-mbK"/>
                             <constraint firstItem="qMU-HJ-35j" firstAttribute="trailing" secondItem="y8N-s9-SNr" secondAttribute="trailing" constant="10" id="Frj-t1-GCT"/>
                             <constraint firstItem="PD7-ec-ZJx" firstAttribute="leading" secondItem="3dg-Xi-YJa" secondAttribute="leading" id="Fye-fP-OKL"/>
@@ -653,6 +660,7 @@
                             <constraint firstItem="cYL-ug-23s" firstAttribute="top" secondItem="y8N-s9-SNr" secondAttribute="bottom" constant="10" id="TV4-ZH-VyJ"/>
                             <constraint firstItem="y8N-s9-SNr" firstAttribute="top" secondItem="pnE-60-PZr" secondAttribute="bottom" constant="20" id="WNd-FV-cBm"/>
                             <constraint firstItem="PD7-ec-ZJx" firstAttribute="centerY" secondItem="aFO-8O-lqw" secondAttribute="centerY" id="WZV-xe-Rly"/>
+                            <constraint firstItem="EVh-eq-WnT" firstAttribute="trailing" secondItem="3dg-Xi-YJa" secondAttribute="trailing" id="Yrm-Fn-D6t"/>
                             <constraint firstItem="UYS-BK-nOo" firstAttribute="centerX" secondItem="aFO-8O-lqw" secondAttribute="centerX" id="cWo-nf-GzW"/>
                             <constraint firstItem="qMU-HJ-35j" firstAttribute="trailing" secondItem="3dg-Xi-YJa" secondAttribute="trailing" constant="10" id="d77-AB-xeb"/>
                             <constraint firstItem="pnE-60-PZr" firstAttribute="leading" secondItem="qMU-HJ-35j" secondAttribute="leading" constant="10" id="eF3-WN-z8K"/>
@@ -664,6 +672,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="correctNameLabel" destination="EVh-eq-WnT" id="f6b-eg-43F"/>
+                        <outlet property="editButton" destination="y8N-s9-SNr" id="h0o-Lk-LCJ"/>
                         <outlet property="imageEditButton" destination="XXa-pG-yMa" id="BUj-uG-BBK"/>
                         <outlet property="nameTextField" destination="3dg-Xi-YJa" id="wVU-Zv-HHx"/>
                         <outlet property="profileImage" destination="UYS-BK-nOo" id="dd0-oh-a3b"/>
@@ -694,6 +704,9 @@
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
