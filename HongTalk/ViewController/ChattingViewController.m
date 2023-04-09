@@ -122,7 +122,9 @@
             Comment *commentMotify = [[Comment alloc] initWithDictionary: data.value];
             commentMotify.readUsers[self->_uid] = @YES;
             NSLog(@"%@", commentMotify.readUsers);
-//            readUserDic[key] = [commentMotify dictionaryRepresentation];
+            
+            // 이곳이 문제 JSON 으로 변환하는 과정에서 오류가 발생하는것으로 보여짐
+            readUserDic[key] = [commentMotify dictionaryRepresentation];
             
             [self->_comments addObject: comment];
         }
