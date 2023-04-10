@@ -35,6 +35,7 @@
 		97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.release.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.release.xcconfig"; sourceTree = "<group>"; };
 		A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A345B19329E296D000226D4F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		A3AFCCDC29E44069004B33CA /* HongTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HongTalk.entitlements; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF04C8FB29DE82CE00510C52 /* ChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
 		CF04C8FC29DE82CE00510C52 /* ChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		CFB6CC2229DA463B005876B9 /* HongTalk */ = {
 			isa = PBXGroup;
 			children = (
+				A3AFCCDC29E44069004B33CA /* HongTalk.entitlements */,
 				CFAEDB9C29DBD883008CF5A7 /* shareClass */,
 				CFB5072F29DA703700B3B42E /* ViewController */,
 				CFB5072E29DA64CE00B3B42E /* View+Storyboard */,
@@ -473,11 +475,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HongTalk/HongTalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XDA545DV75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -505,11 +509,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HongTalk/HongTalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XDA545DV75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
