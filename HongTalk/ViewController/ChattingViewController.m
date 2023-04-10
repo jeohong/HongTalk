@@ -14,6 +14,7 @@
 @import FirebaseDatabase;
 @import FirebaseAuth;
 @import AFNetworking;
+@import Alamofire;
 
 @interface ChattingViewController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textviewHeight;
@@ -185,7 +186,7 @@
 }
 
 -(void)sendFcm {
-    NSString *API = @"";
+    NSString *API = @"AAAAOM_6vIU:APA91bE8YntXx7iCrUeT6b1qdgDiaO412foYJe2uj5tvvO1dgCryMvs_HuJfR2atsVZOFhvB9HCwqHq6kyeoz0V2sGwbqzuY9ceadooczL-qt_0_qg2lDMOankKaOVuvaRj-SOdCDLXp";
     NSString *url = @"https://fcm.googleapis.com/fcm/send";
     
     NSDictionary *header = @{
@@ -206,13 +207,21 @@
     NSDictionary *params = [notificationModel dictionaryRepresentation];
     NSLog(@"%@", params);
     
-    [[AFHTTPSessionManager manager] POST:url parameters:params headers:header progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    // JSON 변경
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON string: %@", jsonString);
+    
+    [[AFHTTPSessionManager manager] POST:url parameters:jsonString headers:header progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // success response
         NSLog(@"메세지 전송");
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         // failure response
         NSLog(@"메세지 전송실패 %@", error.localizedDescription);
     }];
+    
 }
 
 // MARK: TextView Delegate Methods
