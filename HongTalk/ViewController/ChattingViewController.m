@@ -8,10 +8,12 @@
 #import "ChattingViewController.h"
 #import "ChatModel.h"
 #import "UserModel.h"
+#import "NotificationModel.h"
 #import "NSNumber+Daytime.h"
 
 @import FirebaseDatabase;
 @import FirebaseAuth;
+@import AFNetworking;
 
 @interface ChattingViewController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textviewHeight;
@@ -30,6 +32,7 @@
 -(void)getDestinationInfo;
 -(void)getMessageList;
 -(void)setReadCountLabel: (UILabel *) label index: (NSInteger) index;
+-(void)sendFcm;
 
 @end
 
@@ -106,6 +109,7 @@
         };
         
         [[[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid]child: @"comments"] childByAutoId] setValue: value withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            [self sendFcm];
             [self->_messageTextView setText: @""];
             [self textViewDidChange: self->_messageTextView];
         }];
@@ -123,8 +127,6 @@
             Comment *comment = [[Comment alloc] initWithDictionary: data.value];
             Comment *commentMotify = [[Comment alloc] initWithDictionary: data.value];
             commentMotify.readUsers[self->_uid] = @YES;
-            
-            // 이곳이 문제 JSON 으로 변환하는 과정에서 오류가 발생하는것으로 보여짐
             readUserDic[key] = [commentMotify dictionaryRepresentation];
             
             [self->_comments addObject: comment];
@@ -148,24 +150,6 @@
         }
     }];
 }
-
-
-//-(void)getMessageList {
-//
-//    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"comments"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        [self->_comments removeAllObjects];
-//        for (FIRDataSnapshot *data in [[snapshot children] allObjects]) {
-//            Comment *comment = [[Comment alloc] initWithDictionary: data.value];
-//            [self->_comments addObject:comment];
-//        }
-//
-//        [self->_chattingTableView reloadData];
-//
-//        if ([self->_comments count] > 0) {
-//            [self->_chattingTableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow: [self->_comments count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//        }
-//    }];
-//}
 
 -(void)getDestinationInfo {
     [[[[[FIRDatabase database] reference] child: @"users"] child: _destinationUid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -198,6 +182,37 @@
             label.hidden = YES;
         }
     }
+}
+
+-(void)sendFcm {
+    NSString *API = @"";
+    NSString *url = @"https://fcm.googleapis.com/fcm/send";
+    
+    NSDictionary *header = @{
+        @"Content-Type": @"application/json",
+        @"Authorization": [NSString stringWithFormat:@"key=%@", API]
+    };
+    
+    NSString *username = [FIRAuth auth].currentUser.displayName;
+    
+    NotificationModel *notificationModel = [[NotificationModel alloc] init];
+    notificationModel.to = [_destinationUserModel pushToken];
+    notificationModel.notification.title = username;
+    notificationModel.notification.body = [_messageTextView text];
+    notificationModel.data.title = username;
+    notificationModel.data.body = [_messageTextView text];
+    
+    // Notification 오류 -> Json 형식의 문제일 가능성
+    NSDictionary *params = [notificationModel dictionaryRepresentation];
+    NSLog(@"%@", params);
+    
+    [[AFHTTPSessionManager manager] POST:url parameters:params headers:header progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // success response
+        NSLog(@"메세지 전송");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // failure response
+        NSLog(@"메세지 전송실패 %@", error.localizedDescription);
+    }];
 }
 
 // MARK: TextView Delegate Methods

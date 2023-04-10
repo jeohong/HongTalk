@@ -76,6 +76,9 @@ class EditProfileViewController: UIViewController {
             if (correctNameLabel.isHidden) {
                 let dic = ["userName":nameTextField.text!]
                 Database.database().reference().child("users").child(uid).updateChildValues(dic)
+                
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = self.nameTextField.text!
             }
         }
         

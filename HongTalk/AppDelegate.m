@@ -7,8 +7,9 @@
 
 #import "AppDelegate.h"
 @import FirebaseCore;
+@import UserNotifications;
 
-@interface AppDelegate ()
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -20,6 +21,18 @@
     
     // Firebase 설정
     [FIRApp configure];
+    
+    // notification 설정
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+    [[UNUserNotificationCenter currentNotificationCenter]
+        requestAuthorizationWithOptions:authOptions
+        completionHandler:^(BOOL granted, NSError * _Nullable error) {
+          // ...
+        }];
+
+    [application registerForRemoteNotifications];
     return YES;
 }
 

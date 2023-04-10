@@ -6,18 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 @interface Notification : NSObject
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *body;
 
 @end
 
 @interface Data : NSObject
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *body;
 
 @end
 
@@ -27,4 +28,7 @@
 @property (nonatomic, strong) Notification *notification;
 @property (nonatomic, strong) Data *data;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryRepresentation;
 @end
+NS_ASSUME_NONNULL_END

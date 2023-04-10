@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *uid;
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSString *comment;
+@property (nonatomic) NSString *pushToken;
 @end
 
 NS_ASSUME_NONNULL_END
