@@ -13,8 +13,6 @@
 
 @import FirebaseDatabase;
 @import FirebaseAuth;
-@import AFNetworking;
-@import Alamofire;
 
 @interface ChattingViewController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textviewHeight;
@@ -188,12 +186,7 @@
 -(void)sendFcm {
     NSString *API = @"AAAAOM_6vIU:APA91bE8YntXx7iCrUeT6b1qdgDiaO412foYJe2uj5tvvO1dgCryMvs_HuJfR2atsVZOFhvB9HCwqHq6kyeoz0V2sGwbqzuY9ceadooczL-qt_0_qg2lDMOankKaOVuvaRj-SOdCDLXp";
     NSString *url = @"https://fcm.googleapis.com/fcm/send";
-    
-    NSDictionary *header = @{
-        @"Content-Type": @"application/json",
-        @"Authorization": [NSString stringWithFormat:@"key=%@", API]
-    };
-    
+    NSString *authValue = [NSString stringWithFormat:@"key=%@", API];
     NSString *username = [FIRAuth auth].currentUser.displayName;
     
     NotificationModel *notificationModel = [[NotificationModel alloc] init];
@@ -203,24 +196,44 @@
     notificationModel.data.title = username;
     notificationModel.data.body = [_messageTextView text];
     
-    // Notification 오류 -> Json 형식의 문제일 가능성
     NSDictionary *params = [notificationModel dictionaryRepresentation];
-    NSLog(@"%@", params);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
     
     // JSON 변경
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    [request setHTTPBody:jsonData];
     
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON string: %@", jsonString);
-    
-    [[AFHTTPSessionManager manager] POST:url parameters:jsonString headers:header progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // success response
-        NSLog(@"메세지 전송");
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // failure response
-        NSLog(@"메세지 전송실패 %@", error.localizedDescription);
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Network error: %@", error.localizedDescription);
+            return;
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSInteger statusCode = httpResponse.statusCode;
+        
+        if (statusCode != 200) {
+            NSLog(@"HTTP error: %ld", (long)statusCode);
+            return;
+        }
+        
+        NSError *jsonError = nil;
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (jsonError) {
+            NSLog(@"JSON deserialization error: %@", jsonError.localizedDescription);
+            return;
+        }
+        
+        NSLog(@"Response: %@", responseDict);
     }];
+    
+    [task resume];
     
 }
 

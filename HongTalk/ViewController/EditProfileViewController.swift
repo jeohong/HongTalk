@@ -79,6 +79,11 @@ class EditProfileViewController: UIViewController {
                 
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = self.nameTextField.text!
+                changeRequest?.commitChanges(completion: { err in
+                    if err != nil {
+                        print(err?.localizedDescription);
+                    }
+                })
             }
         }
         
