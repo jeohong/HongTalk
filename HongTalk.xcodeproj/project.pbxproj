@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */; };
 		A345B19429E296D000226D4F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B19329E296D000226D4F /* EditProfileViewController.swift */; };
+		A3AFCCDF29E44564004B33CA /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFCCDE29E44564004B33CA /* NotificationModel.m */; };
 		CF04C8FD29DE82CE00510C52 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF04C8FC29DE82CE00510C52 /* ChatModel.m */; };
 		CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */; };
 		CF7AFA0E29DFA08F0095378E /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */; };
@@ -36,6 +37,8 @@
 		A303EDF229DDAB8100E17434 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A345B19329E296D000226D4F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		A3AFCCDC29E44069004B33CA /* HongTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HongTalk.entitlements; sourceTree = "<group>"; };
+		A3AFCCDD29E44564004B33CA /* NotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
+		A3AFCCDE29E44564004B33CA /* NotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationModel.m; sourceTree = "<group>"; };
 		A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HongTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF04C8FB29DE82CE00510C52 /* ChatModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
 		CF04C8FC29DE82CE00510C52 /* ChatModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				CFADF18A29DD0DD300ABCF4B /* UserModel.m */,
 				CF04C8FB29DE82CE00510C52 /* ChatModel.h */,
 				CF04C8FC29DE82CE00510C52 /* ChatModel.m */,
+				A3AFCCDD29E44564004B33CA /* NotificationModel.h */,
+				A3AFCCDE29E44564004B33CA /* NotificationModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				CFADF18E29DD15F000ABCF4B /* FriendsViewController.m in Sources */,
 				CF7AFA0B29DF91960095378E /* NSNumber+Daytime.m in Sources */,
 				CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */,
+				A3AFCCDF29E44564004B33CA /* NotificationModel.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				A345B19429E296D000226D4F /* EditProfileViewController.swift in Sources */,
