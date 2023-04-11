@@ -103,7 +103,7 @@ class EditProfileViewController: UIViewController {
         
         // 이미지를 변경하지 않은 경우 dismiss
         if !isImageChange {
-            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -111,7 +111,7 @@ class EditProfileViewController: UIViewController {
         imageRef.downloadURL { url, err in
             Database.database().reference().child("users").child(uid).child("profileImageUrl").setValue(url?.absoluteString) { err, ref in
                 if (err == nil) {
-                    self.dismiss(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 } else {
                     // alert 로 경고 띄워주기 ( 업데이트 실패 )
                     print("실패")
@@ -165,7 +165,7 @@ class EditProfileViewController: UIViewController {
     
     @objc
     func didSwipe() {
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

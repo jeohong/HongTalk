@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
         let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
         editProfileVC.modalPresentationStyle = .fullScreen
         
-        self.present(editProfileVC, animated: true)
+        self.navigationController?.pushViewController( editProfileVC, animated: true)
     }
     
     @IBAction func pressedNotificationSettingButton(_ sender: Any) {
