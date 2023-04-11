@@ -151,7 +151,7 @@
 }
 
 -(void)getDestinationInfo {
-    [[[[[FIRDatabase database] reference] child: @"users"] child: _destinationUid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: _destinationUid] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         self->_destinationUserModel = [[UserModel alloc] init];
         [self->_destinationUserModel setValuesForKeysWithDictionary:(NSDictionary *)snapshot.value];
         [self getMessageList];
