@@ -23,8 +23,6 @@
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
     
     if ([profileUrl isEqualToString:urlComponents.path]) {
-        NSLog(@"위젯으로 오픈");
-        
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         EditProfileViewController *EditProfileVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
         [self.naviVC pushViewController:EditProfileVC animated:YES];

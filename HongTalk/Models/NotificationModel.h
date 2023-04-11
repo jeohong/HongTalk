@@ -28,7 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Notification *notification;
 @property (nonatomic, strong) Data *data;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryRepresentation;
 @end
 NS_ASSUME_NONNULL_END

@@ -101,7 +101,7 @@ class EditProfileViewController: UIViewController {
             Database.database().reference().child("users").child(uid).updateChildValues(dic)
         }
         
-        // 이미지를 변경하지 않은 경우 dismiss
+        // 이미지를 변경하지 않은 경우 popupViewController
         if !isImageChange {
             self.navigationController?.popViewController(animated: true)
         }
@@ -121,7 +121,6 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func pressedCancelButton(_ sender: Any) {
-        self.dismiss(animated: true)
         navigationController?.popViewController(animated: true)
     }
     

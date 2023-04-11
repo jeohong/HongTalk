@@ -18,26 +18,6 @@
     return self;
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        _to = [dictionary objectForKey:@"to"];
-        
-        NSDictionary *notificationDict = [dictionary objectForKey:@"notification"];
-        if (notificationDict) {
-            _notification.title = [notificationDict objectForKey:@"title"];
-            _notification.body = [notificationDict objectForKey:@"body"];
-        }
-        
-        NSDictionary *dataDict = [dictionary objectForKey:@"data"];
-        if (dataDict) {
-            _data.title = [dataDict objectForKey:@"title"];
-            _data.body = [dataDict objectForKey:@"body"];
-        }
-    }
-    return self;
-}
-
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     if (_to) {
