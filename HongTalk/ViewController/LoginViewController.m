@@ -95,10 +95,7 @@
             // 로그인 성공 뷰 전환
             [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                 if (user != nil) {
-                    UIStoryboard *tabbarSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    UITabBarController *tabbarVC = (UITabBarController *)[tabbarSB instantiateViewControllerWithIdentifier:@"MainViewTabBarController"];
-                    tabbarVC.modalPresentationStyle = UIModalPresentationFullScreen;
-                    [self presentViewController:tabbarVC animated: NO completion:nil];
+                    [self dismissViewControllerAnimated: YES completion:nil];
                     
                     // pushToken
                     NSString *uid = [[[FIRAuth auth] currentUser] uid];

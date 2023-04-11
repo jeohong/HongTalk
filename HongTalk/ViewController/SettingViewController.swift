@@ -40,7 +40,7 @@ class SettingViewController: UIViewController {
             print("Error signing out: %@", signOutError)
         }
         
-        self.dismiss(animated: false)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func loadProfile() {
@@ -55,7 +55,6 @@ class SettingViewController: UIViewController {
             
             // image
             let url = URL(string: userModel.profileImageUrl)
-            print(url)
             URLSession.shared.dataTask(with: url!) { data, response, error in
                 DispatchQueue.main.async {
                     self.profileImage.image = UIImage(data: data!)
