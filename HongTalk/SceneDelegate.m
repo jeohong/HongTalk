@@ -10,8 +10,6 @@
 
 @interface SceneDelegate ()
 
-@property UINavigationController *navigationVC;
-
 @end
 
 @implementation SceneDelegate
@@ -23,11 +21,7 @@
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
 
     if ([profileUrl isEqualToString:urlComponents.path]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *nextViewController = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
-        [self.navigationVC pushViewController: nextViewController animated:YES];
-        
-//        NSLog(@"%@", [UIApplication.sharedApplication.keyWindow.rootViewController.presentedViewController]);
+        NSLog(@"위젯으로 오픈");
     }
 }
 
