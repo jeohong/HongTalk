@@ -38,6 +38,14 @@ class EditProfileViewController: UIViewController {
         loadUserInformation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        swipeGesture.direction = .right
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
     @IBAction func pressedSaveButton(_ sender: Any) {
         guard let uid = self.uid else { return }
         
@@ -114,6 +122,7 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func pressedCancelButton(_ sender: Any) {
         self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func pressendImageEditButton(_ sender: Any) {
@@ -152,7 +161,11 @@ class EditProfileViewController: UIViewController {
                 }
             }.resume()
         }
-        
+    }
+    
+    @objc
+    func didSwipe() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
