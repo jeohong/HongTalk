@@ -36,6 +36,10 @@
     return YES;
 }
 
+// Notification
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    NSLog(@"%@", response);
+}
 
 #pragma mark - UISceneSession lifecycle
 

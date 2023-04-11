@@ -7,7 +7,12 @@
 		<key>HongTalk.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
+			<integer>28</integer>
+		</dict>
+		<key>HongTalkWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
 		</dict>
 	</dict>
 </dict>

@@ -26,10 +26,40 @@
 		CFB6CC3029DA463B005876B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB6CC2F29DA463B005876B9 /* Assets.xcassets */; };
 		CFB6CC3329DA463B005876B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB6CC3129DA463B005876B9 /* LaunchScreen.storyboard */; };
 		CFB6CC3629DA463B005876B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB6CC3529DA463B005876B9 /* main.m */; };
+		CFBA297829E4E508003CF38D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBA297729E4E508003CF38D /* WidgetKit.framework */; };
+		CFBA297A29E4E508003CF38D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBA297929E4E508003CF38D /* SwiftUI.framework */; };
+		CFBA297D29E4E508003CF38D /* HongTalkWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA297C29E4E508003CF38D /* HongTalkWidgetBundle.swift */; };
+		CFBA297F29E4E508003CF38D /* HongTalkWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA297E29E4E508003CF38D /* HongTalkWidget.swift */; };
+		CFBA298129E4E50A003CF38D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFBA298029E4E50A003CF38D /* Assets.xcassets */; };
+		CFBA298529E4E50A003CF38D /* HongTalkWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFBA297629E4E508003CF38D /* HongTalkWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */; };
 		CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF763B429E0030800287BBB /* SettingViewController.swift */; };
 		E8D9109917176953C7E47A21 /* Pods_HongTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFBA298329E4E50A003CF38D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB6CC1829DA463B005876B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFBA297529E4E508003CF38D;
+			remoteInfo = HongTalkWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFBA298629E4E50A003CF38D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CFBA298529E4E50A003CF38D /* HongTalkWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		45F65872AF094105D610E9C8 /* Pods-HongTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HongTalk.debug.xcconfig"; path = "Target Support Files/Pods-HongTalk/Pods-HongTalk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +99,13 @@
 		CFB6CC3229DA463B005876B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFB6CC3429DA463B005876B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB6CC3529DA463B005876B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFBA297629E4E508003CF38D /* HongTalkWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HongTalkWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFBA297729E4E508003CF38D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CFBA297929E4E508003CF38D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CFBA297C29E4E508003CF38D /* HongTalkWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongTalkWidgetBundle.swift; sourceTree = "<group>"; };
+		CFBA297E29E4E508003CF38D /* HongTalkWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongTalkWidget.swift; sourceTree = "<group>"; };
+		CFBA298029E4E50A003CF38D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFBA298229E4E50A003CF38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CFF763B429E0030800287BBB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +121,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CFBA297329E4E508003CF38D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBA297A29E4E508003CF38D /* SwiftUI.framework in Frameworks */,
+				CFBA297829E4E508003CF38D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */,
+				CFBA297729E4E508003CF38D /* WidgetKit.framework */,
+				CFBA297929E4E508003CF38D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				CFB6CC2229DA463B005876B9 /* HongTalk */,
+				CFBA297B29E4E508003CF38D /* HongTalkWidget */,
 				CFB6CC2129DA463B005876B9 /* Products */,
 				4FE9150B4F505C1B4D0DF1EB /* Pods */,
 				0DE0829BA174B236F29FF424 /* Frameworks */,
@@ -180,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				CFB6CC2029DA463B005876B9 /* HongTalk.app */,
+				CFBA297629E4E508003CF38D /* HongTalkWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +256,17 @@
 			path = HongTalk;
 			sourceTree = "<group>";
 		};
+		CFBA297B29E4E508003CF38D /* HongTalkWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CFBA297C29E4E508003CF38D /* HongTalkWidgetBundle.swift */,
+				CFBA297E29E4E508003CF38D /* HongTalkWidget.swift */,
+				CFBA298029E4E50A003CF38D /* Assets.xcassets */,
+				CFBA298229E4E50A003CF38D /* Info.plist */,
+			);
+			path = HongTalkWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,15 +279,34 @@
 				CFB6CC1D29DA463B005876B9 /* Frameworks */,
 				CFB6CC1E29DA463B005876B9 /* Resources */,
 				BE60ACBFD75030B3FAA83252 /* [CP] Embed Pods Frameworks */,
+				CFBA298629E4E50A003CF38D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CFBA298429E4E50A003CF38D /* PBXTargetDependency */,
 			);
 			name = HongTalk;
 			productName = HongTalk;
 			productReference = CFB6CC2029DA463B005876B9 /* HongTalk.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CFBA297529E4E508003CF38D /* HongTalkWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFBA298929E4E50A003CF38D /* Build configuration list for PBXNativeTarget "HongTalkWidgetExtension" */;
+			buildPhases = (
+				CFBA297229E4E508003CF38D /* Sources */,
+				CFBA297329E4E508003CF38D /* Frameworks */,
+				CFBA297429E4E508003CF38D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HongTalkWidgetExtension;
+			productName = HongTalkWidgetExtension;
+			productReference = CFBA297629E4E508003CF38D /* HongTalkWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -235,11 +315,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					CFB6CC1F29DA463B005876B9 = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
+					};
+					CFBA297529E4E508003CF38D = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -257,6 +341,7 @@
 			projectRoot = "";
 			targets = (
 				CFB6CC1F29DA463B005876B9 /* HongTalk */,
+				CFBA297529E4E508003CF38D /* HongTalkWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -271,6 +356,14 @@
 				A303EDF329DDAB8100E17434 /* GoogleService-Info.plist in Resources */,
 				CFB6CC3029DA463B005876B9 /* Assets.xcassets in Resources */,
 				CFB6CC2E29DA463B005876B9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFBA297429E4E508003CF38D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBA298129E4E50A003CF38D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +435,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CFBA297229E4E508003CF38D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBA297D29E4E508003CF38D /* HongTalkWidgetBundle.swift in Sources */,
+				CFBA297F29E4E508003CF38D /* HongTalkWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFBA298429E4E50A003CF38D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFBA297529E4E508003CF38D /* HongTalkWidgetExtension */;
+			targetProxy = CFBA298329E4E50A003CF38D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CFB6CC2C29DA463B005876B9 /* Main.storyboard */ = {
@@ -478,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45F65872AF094105D610E9C8 /* Pods-HongTalk.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -512,6 +623,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97B36B79DA512DBD82301467 /* Pods-HongTalk.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -541,6 +653,64 @@
 			};
 			name = Release;
 		};
+		CFBA298729E4E50A003CF38D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDA545DV75;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HongTalkWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HongTalkWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk.HongTalkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFBA298829E4E50A003CF38D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDA545DV75;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HongTalkWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HongTalkWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk.HongTalkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -558,6 +728,15 @@
 			buildConfigurations = (
 				CFB6CC3A29DA463B005876B9 /* Debug */,
 				CFB6CC3B29DA463B005876B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFBA298929E4E50A003CF38D /* Build configuration list for PBXNativeTarget "HongTalkWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFBA298729E4E50A003CF38D /* Debug */,
+				CFBA298829E4E50A003CF38D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

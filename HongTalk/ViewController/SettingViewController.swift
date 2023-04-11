@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
+@objc
 class SettingViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

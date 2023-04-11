@@ -6,13 +6,30 @@
 //
 
 #import "SceneDelegate.h"
+#import "ChattingViewController.h"
 
 @interface SceneDelegate ()
+
+@property UINavigationController *navigationVC;
 
 @end
 
 @implementation SceneDelegate
 
+-(void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    NSString *profileUrl = @"profile";
+    
+    NSURL *url = URLContexts.allObjects.firstObject.URL;
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
+
+    if ([profileUrl isEqualToString:urlComponents.path]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *nextViewController = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+        [self.navigationVC pushViewController: nextViewController animated:YES];
+        
+//        NSLog(@"%@", [UIApplication.sharedApplication.keyWindow.rootViewController.presentedViewController]);
+    }
+}
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
