@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)getCurrentUid;
 -(NSString *)getCurrentDisplayName;
 -(void)setupUserToken;
+-(void)signout;
 
 // property
 @property (nullable) NSString *currentUid;

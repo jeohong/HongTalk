@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
@@ -33,12 +32,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func pressedLogoutButton(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+        FirebaseManager.sharedInstance().signout()
         
         let databaseRef = Database.database().reference().child("users").child(FirebaseManager.sharedInstance().getCurrentUid()).child("pushToken")
         databaseRef.removeValue()

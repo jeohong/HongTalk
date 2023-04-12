@@ -42,4 +42,13 @@
     return [FIRAuth auth].currentUser.displayName;
 }
 
+-(void)signout {
+    NSError *signOutError;
+    BOOL status = [[FIRAuth auth] signOut:&signOutError];
+    if (!status) {
+      NSLog(@"Error signing out: %@", signOutError);
+      return;
+    }
+}
+
 @end
