@@ -9,8 +9,6 @@
 #import "ChattingViewController.h"
 #import "ViewController.h"
 
-@import FirebaseAuth;
-
 @interface SceneDelegate ()
 
 @end
@@ -24,7 +22,7 @@
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
     
     if ([profileUrl isEqualToString:urlComponents.path]) {
-        if (FirebaseManager.sharedInstance.currentUid != nil) {
+        if (FirebaseManager.sharedInstance.isLogin) {
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             EditProfileViewController *EditProfileVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
             [self.naviVC pushViewController:EditProfileVC animated:YES];

@@ -27,6 +27,10 @@
     return shared;
 }
 
+-(NSString *)currentUid {
+    return [[[FIRAuth auth] currentUser] uid];
+}
+
 -(NSString *)getCurrentUid {
     if (self.currentUid == nil) {
         self.currentUid = [[[FIRAuth auth] currentUser] uid];
@@ -47,6 +51,7 @@
 }
 
 -(void)signout {
+    self.currentUid = nil;
     NSError *signOutError;
     BOOL status = [[FIRAuth auth] signOut:&signOutError];
     if (!status) {
@@ -57,6 +62,14 @@
 
 -(FIRUserProfileChangeRequest *)getUserProfile {
     return [[[FIRAuth auth] currentUser] profileChangeRequest];
+}
+
+-(BOOL)isLogin {
+    if (self.currentUid == nil) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

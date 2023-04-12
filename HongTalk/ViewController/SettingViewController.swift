@@ -32,12 +32,11 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func pressedLogoutButton(_ sender: Any) {
-        FirebaseManager.sharedInstance().signout()
         
         let databaseRef = Database.database().reference().child("users").child(FirebaseManager.sharedInstance().getCurrentUid()).child("pushToken")
         databaseRef.removeValue()
+        FirebaseManager.sharedInstance().signout()
         
-        FirebaseManager.sharedInstance().currentUid = nil
         self.navigationController?.popToRootViewController(animated: false)
     }
     

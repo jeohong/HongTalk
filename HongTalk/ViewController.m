@@ -29,17 +29,17 @@
     
     // 런치스크린 이후 로그인뷰 이동
     // 해결 내용 : 해당 뷰를 띄울때는 viewDidLoad 가 아닌 DidAppear 에서 띄워줘야 한다
-    if (FirebaseManager.sharedInstance.currentUid == nil) {
-        UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
-        LoginViewController *loginVC = (LoginViewController *)[loginSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:loginVC animated: NO completion:nil];
-    }
-    else {
+    if (FirebaseManager.sharedInstance.isLogin) {
         UIStoryboard *tabbarSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabbarVC = (UITabBarController *)[tabbarSB instantiateViewControllerWithIdentifier:@"MainViewTabBarController"];
         tabbarVC.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.navigationController pushViewController:tabbarVC animated: NO];
+    }
+    else {
+        UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
+        LoginViewController *loginVC = (LoginViewController *)[loginSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:loginVC animated: NO completion:nil];
     }
 }
 
