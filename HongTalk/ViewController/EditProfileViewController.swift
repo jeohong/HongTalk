@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
@@ -87,9 +86,9 @@ class EditProfileViewController: UIViewController {
                 let dic = ["userName":nameTextField.text!]
                 Database.database().reference().child("users").child(uid).updateChildValues(dic)
                 
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = self.nameTextField.text!
-                changeRequest?.commitChanges(completion: { err in
+                let changeRequest = FirebaseManager.sharedInstance().getUserProfile()
+                changeRequest.displayName = self.nameTextField.text!
+                changeRequest.commitChanges(completion: { err in
                     if err != nil {
                         print(err?.localizedDescription);
                     }

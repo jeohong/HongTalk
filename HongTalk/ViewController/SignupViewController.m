@@ -140,7 +140,7 @@
         } else {
             NSString *uid = [[authResult user] uid];
             
-            FIRUserProfileChangeRequest *changRequest = [[[FIRAuth auth] currentUser] profileChangeRequest];
+            FIRUserProfileChangeRequest *changRequest = FirebaseManager.sharedInstance.getUserProfile;
             [changRequest setDisplayName: self->_nameTextfield.text];
             [changRequest commitChangesWithCompletion: nil];
             

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import FirebaseAuth;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)getCurrentDisplayName;
 -(void)setupUserToken;
 -(void)signout;
+-(FIRUserProfileChangeRequest *)getUserProfile;
 
 // property
 @property (nullable) NSString *currentUid;

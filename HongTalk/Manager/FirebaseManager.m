@@ -10,6 +10,10 @@
 @import FirebaseMessaging;
 @import FirebaseStorage;
 
+@interface FirebaseManager ()
+
+@end
+
 @implementation FirebaseManager
 // singleton
 +(instancetype)sharedInstance {
@@ -49,6 +53,10 @@
       NSLog(@"Error signing out: %@", signOutError);
       return;
     }
+}
+
+-(FIRUserProfileChangeRequest *)getUserProfile {
+    return [[[FIRAuth auth] currentUser] profileChangeRequest];
 }
 
 @end
