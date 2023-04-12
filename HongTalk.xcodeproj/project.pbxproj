@@ -33,6 +33,7 @@
 		CFBA298129E4E50A003CF38D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFBA298029E4E50A003CF38D /* Assets.xcassets */; };
 		CFBA298529E4E50A003CF38D /* HongTalkWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFBA297629E4E508003CF38D /* HongTalkWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */; };
+		CFF4BF1529E644310085C0D1 /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF4BF1429E644310085C0D1 /* FirebaseManager.m */; };
 		CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF763B429E0030800287BBB /* SettingViewController.swift */; };
 		E8D9109917176953C7E47A21 /* Pods_HongTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67F068208F875DAA280FD86 /* Pods_HongTalk.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,8 @@
 		CFBA298229E4E50A003CF38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFD05D2929DAA5F0001A8E42 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CFF4BF1329E644310085C0D1 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
+		CFF4BF1429E644310085C0D1 /* FirebaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseManager.m; sourceTree = "<group>"; };
 		CFF763B429E0030800287BBB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HongTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				A3AFCCDC29E44069004B33CA /* HongTalk.entitlements */,
+				CFF4BF1229E6440D0085C0D1 /* Manager */,
 				CFAEDB9C29DBD883008CF5A7 /* shareClass */,
 				CFB5072F29DA703700B3B42E /* ViewController */,
 				CFB5072E29DA64CE00B3B42E /* View+Storyboard */,
@@ -265,6 +269,15 @@
 				CFBA298229E4E50A003CF38D /* Info.plist */,
 			);
 			path = HongTalkWidget;
+			sourceTree = "<group>";
+		};
+		CFF4BF1229E6440D0085C0D1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CFF4BF1329E644310085C0D1 /* FirebaseManager.h */,
+				CFF4BF1429E644310085C0D1 /* FirebaseManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +437,7 @@
 				CFF763B529E0030800287BBB /* SettingViewController.swift in Sources */,
 				A3AFCCDF29E44564004B33CA /* NotificationModel.m in Sources */,
 				CFB6CC3629DA463B005876B9 /* main.m in Sources */,
+				CFF4BF1529E644310085C0D1 /* FirebaseManager.m in Sources */,
 				CFB6CC2829DA463B005876B9 /* SceneDelegate.m in Sources */,
 				A345B19429E296D000226D4F /* EditProfileViewController.swift in Sources */,
 				CFD05D2B29DAA5F0001A8E42 /* LoginViewController.m in Sources */,

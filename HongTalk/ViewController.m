@@ -10,8 +10,7 @@
 #import "FriendsViewController.h"
 #import "HongTalk-Swift.h"
 #import "SceneDelegate.h"
-
-@import FirebaseAuth;
+#import "FirebaseManager.h"
 
 @interface ViewController ()
 
@@ -32,7 +31,7 @@
     
     // 런치스크린 이후 로그인뷰 이동
     // 해결 내용 : 해당 뷰를 띄울때는 viewDidLoad 가 아닌 DidAppear 에서 띄워줘야 한다
-    if ([[[FIRAuth auth] currentUser] uid] == nil) {
+    if (FirebaseManager.sharedInstance.currentUid == nil) {
         UIStoryboard *loginSB = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
         LoginViewController *loginVC = (LoginViewController *)[loginSB instantiateViewControllerWithIdentifier:@"LoginViewController"];
         loginVC.modalPresentationStyle = UIModalPresentationFullScreen;

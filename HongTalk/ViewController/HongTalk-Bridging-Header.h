@@ -4,3 +4,4 @@
 
 #import "UserModel.h"
 #import "RegExOfTextfield.h"
+#import "FirebaseManager.h"
