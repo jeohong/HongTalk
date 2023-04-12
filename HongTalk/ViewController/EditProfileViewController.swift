@@ -38,12 +38,16 @@ class EditProfileViewController: UIViewController {
         loadUserInformation()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
-        swipeGesture.direction = .right
-        view.addGestureRecognizer(swipeGesture)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func pressedSaveButton(_ sender: Any) {
@@ -160,11 +164,6 @@ class EditProfileViewController: UIViewController {
                 }
             }.resume()
         }
-    }
-    
-    @objc
-    func didSwipe() {
-        self.navigationController?.popViewController(animated: true)
     }
 }
 

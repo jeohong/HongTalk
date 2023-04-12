@@ -21,8 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SceneDelegate *sceneDelegate = [[[[[UIApplication sharedApplication] connectedScenes] allObjects] firstObject] delegate];
+    SceneDelegate *sceneDelegate = (SceneDelegate *) [[[[[UIApplication sharedApplication] connectedScenes] allObjects] firstObject] delegate];
     sceneDelegate.naviVC = self.navigationController;
+    
+    self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -40,7 +42,7 @@
         UIStoryboard *tabbarSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UITabBarController *tabbarVC = (UITabBarController *)[tabbarSB instantiateViewControllerWithIdentifier:@"MainViewTabBarController"];
         tabbarVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self.navigationController pushViewController:tabbarVC animated:YES];
+        [self.navigationController pushViewController:tabbarVC animated: NO];
     }
 }
 
