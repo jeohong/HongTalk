@@ -8,9 +8,7 @@
 #import "ViewController.h"
 #import "LoginViewController.h"
 #import "FriendsViewController.h"
-#import "HongTalk-Swift.h"
 #import "SceneDelegate.h"
-#import "FirebaseManager.h"
 
 @interface ViewController ()
 

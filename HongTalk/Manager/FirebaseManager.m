@@ -5,7 +5,6 @@
 //  Created by 홍정민 on 2023/04/12.
 //
 
-#import "FirebaseManager.h"
 @import FirebaseAuth;
 @import FirebaseDatabase;
 @import FirebaseMessaging;

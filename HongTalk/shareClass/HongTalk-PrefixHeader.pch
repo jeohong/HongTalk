@@ -1,0 +1,17 @@
+//
+//  HongTalk-PrefixHeader.pch
+//  HongTalk
+//
+//  Created by 홍정민 on 2023/04/12.
+//
+
+#ifndef HongTalk_PrefixHeader_pch
+#define HongTalk_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "FirebaseManager.h"
+#import "HongTalk-Swift.h"
+
+#endif /* HongTalk_PrefixHeader_pch */

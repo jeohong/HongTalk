@@ -7,7 +7,6 @@
 
 #import "SceneDelegate.h"
 #import "ChattingViewController.h"
-#import "HongTalk-Swift.h"
 #import "ViewController.h"
 
 @import FirebaseAuth;

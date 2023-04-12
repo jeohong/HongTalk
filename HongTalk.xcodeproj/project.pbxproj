@@ -111,6 +111,7 @@
 		CFD05D2A29DAA5F0001A8E42 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CFF4BF1329E644310085C0D1 /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
 		CFF4BF1429E644310085C0D1 /* FirebaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseManager.m; sourceTree = "<group>"; };
+		CFF4BF1729E66CCA0085C0D1 /* HongTalk-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HongTalk-PrefixHeader.pch"; sourceTree = "<group>"; };
 		CFF763B429E0030800287BBB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HongTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +184,8 @@
 				CFAEDB9A29DBC935008CF5A7 /* RegExOfTextfield.m */,
 				CF7AFA0929DF91960095378E /* NSNumber+Daytime.h */,
 				CF7AFA0A29DF91960095378E /* NSNumber+Daytime.m */,
+				CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */,
+				CFF4BF1729E66CCA0085C0D1 /* HongTalk-PrefixHeader.pch */,
 			);
 			path = shareClass;
 			sourceTree = "<group>";
@@ -212,7 +215,6 @@
 				CF7AFA0D29DFA08F0095378E /* ChatListViewController.m */,
 				CFF763B429E0030800287BBB /* SettingViewController.swift */,
 				A345B19329E296D000226D4F /* EditProfileViewController.swift */,
-				CFF763B629E0035600287BBB /* HongTalk-Bridging-Header.h */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -610,6 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XDA545DV75;
+				GCC_PREFIX_HEADER = "HongTalk/shareClass/HongTalk-PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -626,7 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/ViewController/HongTalk-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/shareClass/HongTalk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,6 +648,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XDA545DV75;
+				GCC_PREFIX_HEADER = "HongTalk/shareClass/HongTalk-PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HongTalk/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -661,7 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeongmin.HongTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/ViewController/HongTalk-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HongTalk/shareClass/HongTalk-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
