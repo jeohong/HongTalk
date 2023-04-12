@@ -40,13 +40,15 @@ class SettingViewController: UIViewController {
             print("Error signing out: %@", signOutError)
         }
         
-        self.navigationController?.popToRootViewController(animated: true)
+        let databaseRef = Database.database().reference().child("users").child(FirebaseManager.sharedInstance().getCurrentUid()).child("pushToken")
+        databaseRef.removeValue()
+        
+        FirebaseManager.sharedInstance().currentUid = nil
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func loadProfile() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        Database.database().reference().child("users").child(uid).observe(.value) { snapshot in
+        Database.database().reference().child("users").child(FirebaseManager.sharedInstance().getCurrentUid()).observe(.value) { snapshot in
             let userModel = UserModel()
             userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
             
@@ -64,4 +66,4 @@ class SettingViewController: UIViewController {
         }
     }
 }
-    
+

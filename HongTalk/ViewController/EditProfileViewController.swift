@@ -20,7 +20,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var defaultImageButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    let uid = Auth.auth().currentUser?.uid
+    let uid = FirebaseManager.sharedInstance().getCurrentUid()
     var userModel = UserModel()
     var isDefaultImage = false
     var isImageChange = false
@@ -51,8 +51,6 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func pressedSaveButton(_ sender: Any) {
-        guard let uid = self.uid else { return }
-        
         self.cancelButton.isHidden = true
         self.editButton.isEnabled = false
         self.editButton.backgroundColor = .gray
@@ -78,7 +76,7 @@ class EditProfileViewController: UIViewController {
                 imageRef = imageRef.child(uid)
                 
                 imageRef.putData(image!) { data, err in
-                    self.setupDatabase(imageRef, uid)
+                    self.setupDatabase(imageRef, self.uid)
                 }
             }
         }
@@ -146,8 +144,6 @@ class EditProfileViewController: UIViewController {
     }
     
     func loadUserInformation() {
-        guard let uid = self.uid else { return }
-        
         Database.database().reference().child("users").child(uid).observe(.value) { snapshot in
             self.userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
             

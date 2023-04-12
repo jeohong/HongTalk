@@ -24,7 +24,7 @@
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
     
     if ([profileUrl isEqualToString:urlComponents.path]) {
-        if ([[[FIRAuth auth] currentUser] uid] != nil) {
+        if (FirebaseManager.sharedInstance.currentUid != nil) {
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             EditProfileViewController *EditProfileVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
             [self.naviVC pushViewController:EditProfileVC animated:YES];

@@ -29,4 +29,17 @@
     }
     return self.currentUid;
 }
+
+-(void)setupUserToken {
+    [[FIRMessaging messaging] tokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+        if (error == nil) {
+            [[[[[FIRDatabase database] reference] child: @"users"] child: FirebaseManager.sharedInstance.getCurrentUid] updateChildValues:@{@"pushToken": token}];
+        }
+    }];
+}
+
+-(NSString *)getCurrentDisplayName {
+    return [FIRAuth auth].currentUser.displayName;
+}
+
 @end

@@ -12,7 +12,6 @@
 #import "NSNumber+Daytime.h"
 
 @import FirebaseDatabase;
-@import FirebaseAuth;
 
 @interface ChattingViewController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textviewHeight;
@@ -40,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _uid = [[[FIRAuth auth] currentUser] uid];
+    _uid = FirebaseManager.sharedInstance.getCurrentUid;
     _comments = [NSMutableArray array];
     [[[self tabBarController] tabBar] setHidden: YES];
     
@@ -61,7 +60,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [super viewDidDisappear: animated];
+    [super viewWillDisappear: animated];
     [[[self tabBarController] tabBar] setHidden: NO];
     
     [_databaseRef removeObserverWithHandle: _observe];
@@ -187,7 +186,7 @@
     NSString *API = @"AAAAOM_6vIU:APA91bE8YntXx7iCrUeT6b1qdgDiaO412foYJe2uj5tvvO1dgCryMvs_HuJfR2atsVZOFhvB9HCwqHq6kyeoz0V2sGwbqzuY9ceadooczL-qt_0_qg2lDMOankKaOVuvaRj-SOdCDLXp";
     NSString *url = @"https://fcm.googleapis.com/fcm/send";
     NSString *authValue = [NSString stringWithFormat:@"key=%@", API];
-    NSString *username = [FIRAuth auth].currentUser.displayName;
+    NSString *username = FirebaseManager.sharedInstance.getCurrentDisplayName;
     
     NotificationModel *notificationModel = [[NotificationModel alloc] init];
     notificationModel.to = [_destinationUserModel pushToken];

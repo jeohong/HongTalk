@@ -9,8 +9,6 @@
 #import "ChattingViewController.h"
 #import "RegExOfTextfield.h"
 @import FirebaseAuth;
-@import FirebaseMessaging;
-@import FirebaseDatabase;
 
 @interface LoginViewController ()
 // Method
@@ -97,14 +95,7 @@
                 if (user != nil) {
                     [self dismissViewControllerAnimated: YES completion:nil];
                     
-                    // pushToken
-                    NSString *uid = [[[FIRAuth auth] currentUser] uid];
-                    [[FIRMessaging messaging] tokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                        if (error == nil) {
-                            NSLog(@"token : %@", token);
-                            [[[[[FIRDatabase database] reference] child: @"users"] child: uid] updateChildValues:@{@"pushToken": token}];
-                        }
-                    }];
+                    [[FirebaseManager sharedInstance] setupUserToken];
                 }
             }];
         }

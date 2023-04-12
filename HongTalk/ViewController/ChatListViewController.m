@@ -11,7 +11,6 @@
 #import "UserModel.h"
 #import "NSNumber+Daytime.h"
 
-@import FirebaseAuth;
 @import FirebaseDatabase;
 
 @interface ChatListViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -32,7 +31,7 @@
     
     _chatrooms = [NSMutableArray array];
     _destinationUsers = [NSMutableArray array];
-    _uid = [[[FIRAuth auth] currentUser] uid];
+    _uid = FirebaseManager.sharedInstance.getCurrentUid;
     [self getChatroomsList];
 }
 
