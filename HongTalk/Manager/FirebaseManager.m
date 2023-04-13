@@ -12,6 +12,8 @@
 
 @interface FirebaseManager ()
 
+@property (nullable, nonatomic) NSString *currentUid;
+
 @end
 
 @implementation FirebaseManager
@@ -27,10 +29,6 @@
     return shared;
 }
 
--(NSString *)currentUid {
-    return [[[FIRAuth auth] currentUser] uid];
-}
-
 -(NSString *)getCurrentUid {
     if (self.currentUid == nil) {
         self.currentUid = [[[FIRAuth auth] currentUser] uid];
@@ -39,9 +37,12 @@
 }
 
 -(void)setupUserToken {
+    if (self.currentUid == nil) {
+        [self getCurrentUid];
+    }
     [[FIRMessaging messaging] tokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
         if (error == nil) {
-            [[[[[FIRDatabase database] reference] child: @"users"] child: FirebaseManager.sharedInstance.getCurrentUid] updateChildValues:@{@"pushToken": token}];
+            [[[[[FIRDatabase database] reference] child: @"users"] child: self.currentUid] updateChildValues:@{@"pushToken": token}];
         }
     }];
 }
@@ -51,25 +52,24 @@
 }
 
 -(void)signout {
-    self.currentUid = nil;
     NSError *signOutError;
     BOOL status = [[FIRAuth auth] signOut:&signOutError];
     if (!status) {
       NSLog(@"Error signing out: %@", signOutError);
       return;
     }
+    
+    [self resetUserData];
 }
 
 -(FIRUserProfileChangeRequest *)getUserProfile {
     return [[[FIRAuth auth] currentUser] profileChangeRequest];
 }
 
--(BOOL)isLogin {
-    if (self.currentUid == nil) {
-        return NO;
-    } else {
-        return YES;
-    }
+-(void)resetUserData {
+    FIRDatabaseReference *tokenRef = [[[[[FIRDatabase database] reference] child: @"users"] child: self.currentUid] child: @"pushToken"];
+    [tokenRef removeValue];
+    
+    self.currentUid = nil;
 }
-
 @end

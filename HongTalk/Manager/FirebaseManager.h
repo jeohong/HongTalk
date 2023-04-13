@@ -20,10 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setupUserToken;
 -(void)signout;
 -(FIRUserProfileChangeRequest *)getUserProfile;
--(BOOL)isLogin;
+-(void)resetUserData;
 
 // property
-@property (nullable, nonatomic) NSString *currentUid;
 
 @end
 

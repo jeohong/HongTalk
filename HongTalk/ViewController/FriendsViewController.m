@@ -22,13 +22,15 @@
     [super viewDidLoad];
     
     _users = [NSMutableArray array];
+    NSString *uid = FirebaseManager.sharedInstance.getCurrentUid;
+    
     [[[[FIRDatabase database] reference] child: @"users"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         [self->_users removeAllObjects];        
         for (FIRDataSnapshot *data in [snapshot children]) {
             UserModel *userModel = [[UserModel alloc] init];
             [userModel setValuesForKeysWithDictionary: [data value]];
             
-            if ([[userModel uid] isEqual: FirebaseManager.sharedInstance.getCurrentUid]) {
+            if ([[userModel uid] isEqual: uid]) {
                 continue;
             }
             
