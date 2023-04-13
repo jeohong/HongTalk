@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 import FirebaseStorage
 
 @objc
@@ -38,9 +37,10 @@ class SettingViewController: UIViewController {
     }
     
     func loadProfile() {
-        Database.database().reference().child("users").child(FirebaseManager.sharedInstance().getCurrentUid()).observe(.value) { snapshot in
+        let uid = FirebaseManager.sharedInstance().getCurrentUid()
+        FirebaseManager.sharedInstance().userObserve(withUid: uid) { snapShot in
             let userModel = UserModel()
-            userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
+            userModel.setValuesForKeys(snapShot.value as! [String: AnyObject])
             
             self.nameLabel.text = userModel.userName
             self.commentLabel.text = userModel.comment

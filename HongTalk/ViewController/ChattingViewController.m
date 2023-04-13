@@ -150,9 +150,9 @@
 }
 
 -(void)getDestinationInfo {
-    [[[[[FIRDatabase database] reference] child: @"users"] child: _destinationUid] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [FirebaseManager.sharedInstance userObserveWithUid: self.destinationUid completeBlock:^(FIRDataSnapshot * _Nonnull snapShot) {
         self->_destinationUserModel = [[UserModel alloc] init];
-        [self->_destinationUserModel setValuesForKeysWithDictionary:(NSDictionary *)snapshot.value];
+        [self->_destinationUserModel setValuesForKeysWithDictionary:(NSDictionary *)snapShot.value];
         [self getMessageList];
     }];
 }

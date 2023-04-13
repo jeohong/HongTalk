@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 // MARK: Firebase Database 관련 메소드
 -(void)setupDatabaseWithUid: (NSString *)uid setValue: (NSDictionary *) values completeBlock: (void (^)(NSError *error)) completeBlock;
 -(void)getUserList: (void (^)(FIRDataSnapshot *snapShot)) completeBlock;
+-(void)userObserveWithUid: (NSString *) uid completeBlock: (void (^)(FIRDataSnapshot *snapShot)) completeBlock;
 // property
 
 @end

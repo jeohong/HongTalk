@@ -108,4 +108,10 @@
         completeBlock(snapshot);
     }];
 }
+
+-(void)userObserveWithUid: (NSString *) uid completeBlock: (void (^)(FIRDataSnapshot *snapShot)) completeBlock {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: uid] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        completeBlock(snapshot);
+    }];
+}
 @end

@@ -32,12 +32,18 @@
     _chatrooms = [NSMutableArray array];
     _destinationUsers = [NSMutableArray array];
     _uid = FirebaseManager.sharedInstance.getCurrentUid;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self getChatroomsList];
 }
 
 -(void)getChatroomsList {
     NSString *usersUid = [NSString stringWithFormat:@"users/%@", _uid];
-    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    
+    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         [self->_chatrooms removeAllObjects];
         for (FIRDataSnapshot *data in [[snapshot children] allObjects]) {
             NSDictionary *chatRoomDic = (NSDictionary *)data.value;
@@ -61,7 +67,7 @@
         }
     }
 
-    [[[[[FIRDatabase database] reference] child: @"users"] child: destinationUid] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: destinationUid] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         UserModel *userModel = [[UserModel alloc] init];
         [userModel setValuesForKeysWithDictionary: snapshot.value];
         
