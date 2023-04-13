@@ -56,8 +56,8 @@
     NSError *signOutError;
     BOOL status = [[FIRAuth auth] signOut:&signOutError];
     if (!status) {
-      NSLog(@"Error signing out: %@", signOutError);
-      return;
+        NSLog(@"Error signing out: %@", signOutError);
+        return;
     }
     
     [self resetUserData];
@@ -81,6 +81,12 @@
             
             [self setupUserToken];
         }
+    }];
+}
+
+-(void)login:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock {
+    [[FIRAuth auth] signInWithEmail: email password: password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        completeBlock(error, authResult);
     }];
 }
 

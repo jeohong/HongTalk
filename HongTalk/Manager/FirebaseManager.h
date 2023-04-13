@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(FIRUserProfileChangeRequest *)getUserProfile;
 -(void)resetUserData;
 -(void)userChangeListener: (UIViewController *)viewController;
+-(void)login:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock;
 
 // MARK: Firebase Database 관련 메소드
 // property
