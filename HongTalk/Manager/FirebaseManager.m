@@ -102,4 +102,10 @@
         completeBlock(error);
     }];
 }
+
+-(void)getUserList:(void (^)(FIRDataSnapshot *snapShot)) completeBlock {
+    [[[[FIRDatabase database] reference] child: @"users"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        completeBlock(snapshot);
+    }];
+}
 @end

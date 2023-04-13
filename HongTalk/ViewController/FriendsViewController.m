@@ -8,7 +8,6 @@
 #import "FriendsViewController.h"
 #import "ChattingViewController.h"
 #import "UserModel.h"
-@import FirebaseDatabase;
 
 // MARK: FriendsViewController
 @interface FriendsViewController() <UITableViewDelegate, UITableViewDataSource>
@@ -24,9 +23,9 @@
     _users = [NSMutableArray array];
     NSString *uid = FirebaseManager.sharedInstance.getCurrentUid;
     
-    [[[[FIRDatabase database] reference] child: @"users"] observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        [self->_users removeAllObjects];        
-        for (FIRDataSnapshot *data in [snapshot children]) {
+    [FirebaseManager.sharedInstance getUserList:^(FIRDataSnapshot * _Nonnull snapShot) {
+        [self->_users removeAllObjects];
+        for (FIRDataSnapshot *data in [snapShot children]) {
             UserModel *userModel = [[UserModel alloc] init];
             [userModel setValuesForKeysWithDictionary: [data value]];
             
