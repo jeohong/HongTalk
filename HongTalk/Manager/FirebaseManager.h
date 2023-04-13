@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)signupEmail:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock;
 
 // MARK: Firebase Database 관련 메소드
+-(void)setupDatabaseWithUid: (NSString *)uid setValue: (NSDictionary *) values completeBlock: (void (^)(NSError *error)) completeBlock;
 // property
 
 @end

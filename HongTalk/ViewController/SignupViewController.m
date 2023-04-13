@@ -7,7 +7,6 @@
 
 #import "SignupViewController.h"
 #import "RegExOfTextfield.h"
-@import FirebaseDatabase;
 @import FirebaseStorage;
 
 @interface SignupViewController ()
@@ -190,7 +189,7 @@
 -(void)setupDatabase:(FIRStorageReference *) imageRef uid:(NSString *)uid sender:(id)sender {
     [imageRef downloadURLWithCompletion:^(NSURL * _Nullable url, NSError * _Nullable error) {
         NSDictionary *values = @{@"userName" : self->_nameTextfield.text, @"profileImageUrl": [url absoluteString], @"uid": FirebaseManager.sharedInstance.getCurrentUid};
-        [[[[[FIRDatabase database] reference] child: @"users"] child: uid] setValue: values withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        [FirebaseManager.sharedInstance setupDatabaseWithUid: uid setValue: values completeBlock:^(NSError * _Nonnull error) {
             if (error == nil)
                 // 회원가입 성공
                 [self pressedCancelButton: sender];

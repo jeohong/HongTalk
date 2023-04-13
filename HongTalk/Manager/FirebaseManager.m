@@ -97,5 +97,9 @@
 }
 
 // MARK: Firebase Database
-
+-(void)setupDatabaseWithUid: (NSString *)uid setValue: (NSDictionary *) values completeBlock: (void (^)(NSError *error)) completeBlock {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: uid] setValue: values withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        completeBlock(error);
+    }];
+}
 @end
