@@ -15,13 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype) sharedInstance;
 
 // Method
+// MARK: Firebase Auth 관련 메소드
 -(NSString *)getCurrentUid;
 -(NSString *)getCurrentDisplayName;
 -(void)setupUserToken;
 -(void)signout;
 -(FIRUserProfileChangeRequest *)getUserProfile;
 -(void)resetUserData;
+-(void)userChangeListener: (UIViewController *)viewController;
 
+// MARK: Firebase Database 관련 메소드
 // property
 
 @end

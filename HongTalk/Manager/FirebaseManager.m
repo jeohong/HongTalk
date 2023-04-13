@@ -29,6 +29,7 @@
     return shared;
 }
 
+// MARK: FirebaseAuth
 -(NSString *)getCurrentUid {
     if (self.currentUid == nil) {
         self.currentUid = [[[FIRAuth auth] currentUser] uid];
@@ -72,4 +73,17 @@
     
     self.currentUid = nil;
 }
+
+-(void)userChangeListener:(UIViewController *)viewController {
+    [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+        if (user != nil) {
+            [viewController dismissViewControllerAnimated: YES completion:nil];
+            
+            [self setupUserToken];
+        }
+    }];
+}
+
+// MARK: Firebase Database
+
 @end

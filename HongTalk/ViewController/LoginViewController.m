@@ -90,14 +90,7 @@
             [alert addAction:okAction];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            // 로그인 성공 뷰 전환
-            [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
-                if (user != nil) {
-                    [self dismissViewControllerAnimated: YES completion:nil];
-                    
-                    [[FirebaseManager sharedInstance] setupUserToken];
-                }
-            }];
+            [FirebaseManager.sharedInstance userChangeListener: self];
         }
     }];
 }
