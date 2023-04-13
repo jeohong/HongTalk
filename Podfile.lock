@@ -596,22 +596,6 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - AFNetworking (4.0.1):
-    - AFNetworking/NSURLSession (= 4.0.1)
-    - AFNetworking/Reachability (= 4.0.1)
-    - AFNetworking/Security (= 4.0.1)
-    - AFNetworking/Serialization (= 4.0.1)
-    - AFNetworking/UIKit (= 4.0.1)
-  - AFNetworking/NSURLSession (4.0.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (4.0.1)
-  - AFNetworking/Security (4.0.1)
-  - AFNetworking/Serialization (4.0.1)
-  - AFNetworking/UIKit (4.0.1):
-    - AFNetworking/NSURLSession
-  - Alamofire (5.6.4)
   - BoringSSL-GRPC (0.0.24):
     - BoringSSL-GRPC/Implementation (= 0.0.24)
     - BoringSSL-GRPC/Interface (= 0.0.24)
@@ -765,8 +749,6 @@ PODS:
   - PromisesObjC (2.2.0)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Alamofire
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseFirestore
@@ -777,8 +759,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
-    - AFNetworking
-    - Alamofire
     - BoringSSL-GRPC
     - FirebaseABTesting
     - FirebaseAppCheckInterop
@@ -805,8 +785,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
-  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
-  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   FirebaseABTesting: 76c8297fd026074e0366dc941d265d1be80a56d5
   FirebaseAppCheckInterop: 8e907eea79958960a8bd2058e067f31e03a7914b
@@ -831,6 +809,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: fd1d5284a5dd8dcff8c203c07908ccf85fd849ed
+PODFILE CHECKSUM: 0a0144c696c0e3801e7be8d7483e06c5132ccf62
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

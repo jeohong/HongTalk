@@ -12,8 +12,6 @@ target 'HongTalk' do
   pod 'FirebaseDatabase'
   pod 'FirebaseRemoteConfig'
   pod 'FirebaseStorage'
-  pod 'Alamofire'
-  pod 'AFNetworking'
 
 post_install do |installer|
     installer.generated_projects.each do |project|
