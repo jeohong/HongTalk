@@ -84,8 +84,14 @@
     }];
 }
 
--(void)login:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock {
+-(void)loginEmail:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock {
     [[FIRAuth auth] signInWithEmail: email password: password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+        completeBlock(error, authResult);
+    }];
+}
+
+-(void)signupEmail:(NSString *)email password:(NSString *)password completeBlock: (void (^)(NSError *error, FIRAuthDataResult *result)) completeBlock {
+    [[FIRAuth auth] createUserWithEmail: email password: password completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         completeBlock(error, authResult);
     }];
 }

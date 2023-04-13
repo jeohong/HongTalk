@@ -8,7 +8,6 @@
 #import "LoginViewController.h"
 #import "ChattingViewController.h"
 #import "RegExOfTextfield.h"
-@import FirebaseAuth;
 
 @interface LoginViewController ()
 // Method
@@ -54,7 +53,7 @@
     [_loginButton setEnabled: NO];
     [_signupButton setHidden: YES];
     
-    [FirebaseManager.sharedInstance login: self.emailTextfield.text password: self.passwordTextfield.text completeBlock:^(NSError * _Nonnull error, FIRAuthDataResult * _Nonnull result) {
+    [FirebaseManager.sharedInstance loginEmail: self.emailTextfield.text password: self.passwordTextfield.text completeBlock:^(NSError * _Nonnull error, FIRAuthDataResult * _Nonnull result) {
         NSString *errorMessage = @"";
         if (error != nil) {
             // 비밀번호 틀릴때 : 17009 , 아이디 틀릴때 : 17011, 계정 사용 중지 17005

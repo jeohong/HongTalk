@@ -7,7 +7,6 @@
 
 #import "SignupViewController.h"
 #import "RegExOfTextfield.h"
-@import FirebaseAuth;
 @import FirebaseDatabase;
 @import FirebaseStorage;
 
@@ -131,14 +130,11 @@
     [_signupButton setEnabled: NO];
     [_cancelButton setHidden: YES];
     
-    [[FIRAuth auth] createUserWithEmail: [_emailTextfield text]
-                               password: [_passwordTextfield text]
-                             completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
-        
+    [FirebaseManager.sharedInstance signupEmail: self.emailTextfield.text password: self.passwordTextfield.text completeBlock:^(NSError * _Nonnull error, FIRAuthDataResult * _Nonnull result) {
         if (error != nil) {
             [self presentAlert: error];
         } else {
-            NSString *uid = [[authResult user] uid];
+            NSString *uid = result.user.uid;
             
             FIRUserProfileChangeRequest *changRequest = FirebaseManager.sharedInstance.getUserProfile;
             [changRequest setDisplayName: self->_nameTextfield.text];
