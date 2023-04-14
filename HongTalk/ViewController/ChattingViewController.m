@@ -74,9 +74,8 @@
 
 -(void)checkRoom {
     NSString *usersUid = [NSString stringWithFormat:@"users/%@", _uid];
-    
-    [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        for (FIRDataSnapshot *data in snapshot.children.allObjects) {
+    [FirebaseManager.sharedInstance chatroomDataObserveSingleWithUid: usersUid isOrder: YES completeBlock:^(FIRDataSnapshot * _Nonnull snapShot) {
+        for (FIRDataSnapshot *data in snapShot.children.allObjects) {
             NSDictionary *chatRoomDic = (NSDictionary *)data.value;
             ChatModel *chatModel = [[ChatModel alloc] initWithDictionary:chatRoomDic];
             if ([chatModel.users[self->_destinationUid] isEqual: @YES]) {
@@ -160,8 +159,9 @@
 -(void)setReadCountLabel:(UILabel *)label index:(NSInteger)index {
     NSInteger readCount = [[[_comments objectAtIndex: index] readUsers] count];
     if (!_peopleCount) {
-        [[[[[[FIRDatabase database] reference] child: @"chatrooms"] child: _chatRoomUid] child: @"users"] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-            NSDictionary *dic = snapshot.value;
+        // TODO: 여기부터
+        [FirebaseManager.sharedInstance chatroomDataObserveSingleWithUid: self.chatRoomUid isOrder: NO completeBlock:^(FIRDataSnapshot * _Nonnull snapShot) {
+            NSDictionary *dic = snapShot.value;
             self->_peopleCount = [dic count];
             NSInteger noReadCount = self->_peopleCount - readCount;
             if (noReadCount > 0) {

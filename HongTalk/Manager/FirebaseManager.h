@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)getUserList: (void (^)(FIRDataSnapshot *snapShot)) completeBlock;
 -(void)userObserveWithUid: (NSString *) uid completeBlock: (void (^)(FIRDataSnapshot *snapShot)) completeBlock;
 -(void)userDataUpdate: (NSString *) uid childOfData: (NSDictionary *) value completeBlock: (nullable void (^)(NSError *error)) completeBlock;
+-(void)chatroomDataObserveSingleWithUid: (NSString *) uid isOrder: (BOOL) isOrder completeBlock: (void (^)(FIRDataSnapshot *snapShot)) completeBlock;
 // property
 
 @end

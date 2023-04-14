@@ -122,4 +122,19 @@
         }
     }];
 }
+
+-(void)chatroomDataObserveSingleWithUid: (NSString *) uid isOrder: (BOOL) isOrder completeBlock: (void (^)(FIRDataSnapshot *snapShot)) completeBlock {
+    NSString *chatrooms = @"chatrooms";
+    NSString *users = @"users";
+    
+    if (isOrder) {
+        [[[[[[FIRDatabase database] reference] child: chatrooms] queryOrderedByChild: uid] queryEqualToValue: @YES] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            completeBlock(snapshot);
+        }];
+    } else {
+        [[[[[[FIRDatabase database] reference] child: chatrooms] child: uid] child: users] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            completeBlock(snapshot);
+        }];
+    }
+}
 @end
