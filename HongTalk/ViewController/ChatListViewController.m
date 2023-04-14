@@ -29,14 +29,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _chatrooms = [NSMutableArray array];
-    _destinationUsers = [NSMutableArray array];
     _uid = FirebaseManager.sharedInstance.getCurrentUid;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
+    self.chatrooms = [NSMutableArray array];
+    self.destinationUsers = [NSMutableArray array];
     [self getChatroomsList];
 }
 
@@ -44,7 +44,6 @@
     NSString *usersUid = [NSString stringWithFormat:@"users/%@", _uid];
     
     [[[[[[FIRDatabase database] reference] child: @"chatrooms"] queryOrderedByChild: usersUid] queryEqualToValue: @YES] observeSingleEventOfType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        [self->_chatrooms removeAllObjects];
         for (FIRDataSnapshot *data in [[snapshot children] allObjects]) {
             NSDictionary *chatRoomDic = (NSDictionary *)data.value;
             ChatModel *chatModel = [[ChatModel alloc] initWithDictionary:chatRoomDic];
@@ -100,7 +99,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath: indexPath animated: YES];
     NSString *destinationUid = self.destinationUsers[indexPath.row];
-    
+    NSLog(destinationUid);
     UIStoryboard *chatSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChattingViewController *chatVC = (ChattingViewController *)[chatSB instantiateViewControllerWithIdentifier:@"ChattingViewController"];
     chatVC.destinationUid = destinationUid;
