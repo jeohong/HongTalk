@@ -84,22 +84,18 @@ class EditProfileViewController: UIViewController {
         if self.nameTextField.text != "" {
             if (correctNameLabel.isHidden) {
                 let dic = ["userName":nameTextField.text!]
-                Database.database().reference().child("users").child(uid).updateChildValues(dic)
+                FirebaseManager.sharedInstance().userDataUpdate(uid, childOfData: dic)
                 
                 let changeRequest = FirebaseManager.sharedInstance().getUserProfile()
                 changeRequest.displayName = self.nameTextField.text!
-                changeRequest.commitChanges(completion: { err in
-                    if err != nil {
-                        print(err?.localizedDescription);
-                    }
-                })
+                changeRequest.commitChanges(completion: nil)
             }
         }
         
         // 상태메세지 수정
         if self.stateMessageTextField.text != "" {
             let dic = ["comment":stateMessageTextField.text!]
-            Database.database().reference().child("users").child(uid).updateChildValues(dic)
+            FirebaseManager.sharedInstance().userDataUpdate(uid, childOfData: dic)
         }
         
         // 이미지를 변경하지 않은 경우 popupViewController
@@ -110,7 +106,9 @@ class EditProfileViewController: UIViewController {
     
     func setupDatabase(_ imageRef: StorageReference, _ uid: String) {
         imageRef.downloadURL { url, err in
-            Database.database().reference().child("users").child(uid).child("profileImageUrl").setValue(url?.absoluteString) { err, ref in
+            guard let url = url else { return }
+            let dic = ["profileImageUrl":url.absoluteString]
+            FirebaseManager.sharedInstance().userDataUpdate(uid, childOfData: dic) { error in
                 if (err == nil) {
                     self.navigationController?.popViewController(animated: true)
                 } else {
@@ -143,7 +141,7 @@ class EditProfileViewController: UIViewController {
     }
     
     func loadUserInformation() {
-        Database.database().reference().child("users").child(uid).observe(.value) { snapshot in
+        FirebaseManager.sharedInstance().userObserve(withUid: uid) { snapshot in
             self.userModel.setValuesForKeys(snapshot.value as! [String: AnyObject])
             
             self.nameTextField.placeholder = self.userModel.userName

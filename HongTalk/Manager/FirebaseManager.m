@@ -114,4 +114,12 @@
         completeBlock(snapshot);
     }];
 }
+
+-(void)userDataUpdate: (NSString *) uid childOfData: (NSDictionary *) value completeBlock:(nullable void (^)(NSError * _Nullable error))completeBlock {
+    [[[[[FIRDatabase database] reference] child: @"users"] child: uid] updateChildValues: value withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (completeBlock){
+            completeBlock(error);
+        }
+    }];
+}
 @end
